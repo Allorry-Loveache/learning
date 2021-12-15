@@ -1,2 +1,0 @@
-# learning
-my learning

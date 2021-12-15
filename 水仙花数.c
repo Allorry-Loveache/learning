@@ -3,14 +3,14 @@ int narcissistic(int number) {
     int temp = number, count = 0, i, j, a[10], sum, t;
     while (temp > 0) {
         a[count] = temp % 10;
-        temp /= 10;          //Í³¼ÆÊıÎ»£¬¼ÇÂ¼Êı×Ö
+        temp /= 10;          //ç»Ÿè®¡æ•°ä½ï¼Œè®°å½•æ•°å­—
         count++;
     }
     sum = 0;
     for (i = 0; i < count; i++) {
         t = 1;
         for (j = 0; j < count; j++)
-            t *= a[i];          //³Ë·½
+            t *= a[i];          //ä¹˜æ–¹
         sum += t;
     }
     if (sum == number) return 1;

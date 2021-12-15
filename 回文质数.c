@@ -1,6 +1,6 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 #include<stdio.h>                   
-int prime(int n) {                       //ÅÐ¶ÏËØÊý
+int prime(int n) {                       //åˆ¤æ–­ç´ æ•°
 	if (n == 1)
 		return 0;
 	if (n % 2 == 0)
@@ -15,7 +15,7 @@ int prime(int n) {                       //ÅÐ¶ÏËØÊý
 	}
 }
 int hw(int n) {
-	int sum = 0;                    //ÅÐ¶Ï»ØÎÄÊý
+	int sum = 0;                    //åˆ¤æ–­å›žæ–‡æ•°
 	int k = n;
 	while (n != 0) {
 		sum = sum * 10 + n % 10;
@@ -30,7 +30,7 @@ int main() {
 	int i, n, sum = 0, m;
 	scanf("%d %d", &n, &m);
 	for (i = n; i <= m; i++) {
-		if (i == 9989900)           //Ò»ÒÚÄÚ×î´óµÄ»ØÎÄÊý
+		if (i == 9989900)           //ä¸€äº¿å†…æœ€å¤§çš„å›žæ–‡æ•°
 			break;
 		if (hw(i) && prime(i))
 			printf("%d\n", i);

@@ -1,5 +1,5 @@
 #define _CRT_SECURE_NO_WARNINGS 1
-int factorsum(int number) {  //求一个数的因子和
+int factorsum(int number) {  //脟贸脪禄赂枚脢媒碌脛脪貌脳脫潞脥
 	int sum = 1;
 	if (number == 1) return 0;
 	for (int i = 2; i <= number / i; i++)

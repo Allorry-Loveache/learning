@@ -29,16 +29,3 @@ a
 happy new year
 输出样例：
 hppy new yer
-
-
-
-
-void delchar(char* str, char c)
-{
-	int i, j = 0;
-	for (i = 0; *(str + i) != '\0'; i++) 
-		if (*(str + i) != c)
-			*(str + (j++)) = *(str + i);
-	*(str + j) = '\0';
-}
-// a    b b a a a a a b  看不懂的思路

@@ -1,0 +1,88 @@
+//周强你可真是个人才
+
+本题要求实现一个函数，按照以下规则计算学生的总评等级成绩：
+
+（1）共有C语言、英语、数学三门成绩，每门成绩为百分制。单科成绩不低于60分为通过；
+
+（2）总评等级成绩有5档，分数为5、4、3、2、1，分别表示优秀、良好、中等、及格、未通过；
+
+（3）C语言、英语、数学成绩中，有任何一门未通过（即低于60分），则总评成绩为“未通过”；
+
+（4）若三门单科成绩均通过，则根据三科平均成绩评定：
+
+C语言成绩低于90分的，不得评定为优秀，即无论平均分是多少，最高评为良好；
+平均成绩超过90分的，评定为优秀（5分），但C语言成绩不符合要求的只能评为良好；
+平均成绩超过80分且不超过90分的，评定为良好（4分）；
+平均成绩超过70分且不超过80分的，评定为中等（3分）；
+平均成绩超过60分且不超过70分的，评定为及格（2分）；
+平均成绩不超过60分的，评定为未通过（1分）。
+提示：仔细阅读评分规则，注意与平时常见规则的不同，例如平均分为80分的，等级是“中等”而不是“良好”。
+
+函数接口定义：
+int calScore(struct Student *stu);
+
+函数要做到：
+根据规则计算该学生的等级成绩，并写入该学生结构体的grade成员（数据项）中
+若该学生总评成绩通过（2分至5分），则函数返回1；若总评成绩未通过（1分），则函数返回0
+
+裁判测试程序样例：
+#include <stdio.h>
+struct Student{
+    char name[50];  //姓名
+    int sid;    //学号
+    int C;   //C语言成绩
+    int English;   //英语成绩
+    int math;   //数学成绩
+    int grade;   //总评等级成绩
+};
+int calScore(struct Student *stu);
+int main(){
+    int n;
+    scanf("%d", &n);
+    struct Student stu;
+    int pass;
+    for(int i=0; i<n; i++){
+        scanf("%s%d%d%d%d", stu.name, &stu.sid, &stu.C,
+              &stu.English, &stu.math);
+        pass = calScore(&stu);
+        printf("(%d, %s) : %d(%d)\n", stu.sid, stu.name, stu.grade, pass);
+    }
+    return 0;
+}
+/** 你所提交的代码将被嵌在这里  **/
+
+
+输入样例：
+对于样例裁判程序的输入格式：（实际的输入格式可能随裁判程序的不同而变化）
+
+4
+zhangsan 1001 95 87 90
+lisi 1002 79 80 81
+wangwu 1003 85 99 99
+zhaoliu 1004 58 90 92
+结尾无空行
+输出样例：
+对于样例裁判程序的输出格式：（实际的输出格式可能随裁判程序的不同而变化）
+
+(1001, zhangsan) : 5(1)
+(1002, lisi) : 3(1)
+(1003, wangwu) : 4(1)
+(1004, zhaoliu) : 1(0)
+
+
+
+
+Code：
+int calScore(struct Student* stu) {
+    int sum = stu->C + stu->English + stu->math;
+    if (stu->C < 60 || stu->math < 60 || stu->English < 60) {
+        stu->grade = 1;
+        return 0;
+    }
+    if (sum > 270) 
+        if(stu->C>=90) { stu->grade = 5; return 1; }
+        else { stu->grade = 4; return 1; }
+    if (sum <= 270 && sum > 240) { stu->grade = 4; return 1; }
+    if (sum <= 240 && sum > 210) { stu->grade = 3; return 1; }
+    if (sum <= 210 && sum > 180) { stu->grade = 2; return 1; }
+}

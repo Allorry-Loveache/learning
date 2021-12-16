@@ -1,7 +1,7 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 
 #include <stdio.h>
-//int a[401][401];           //ÈıÄ¿ÔËËã·û×ö·¨
+//int a[401][401];           //ä¸‰ç›®è¿ç®—ç¬¦åšæ³•
 //int n, sum;
 //int main()
 //{
@@ -27,7 +27,7 @@
 //}
 
 
-#include <stdio.h>   //¾ØÕóÆ½ÒÆË¼Ïë
+#include <stdio.h>   //çŸ©é˜µå¹³ç§»æ€æƒ³
 int a[401][401];
 int n, sum;
 int main()

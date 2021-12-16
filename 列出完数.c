@@ -2,7 +2,7 @@
 #include<stdio.h>
 #define m 10000
 int a[m + 1];
-int main() {       //ÏÈ´æ´¢·¶Î§ÄÚËùÓĞÍêÊı
+int main() {       //å…ˆå­˜å‚¨èŒƒå›´å†…æ‰€æœ‰å®Œæ•°
 	a[1] = 0;
 	for (int i = 2; i <= 10000; i++) {
 		int sum = 1;
@@ -14,7 +14,7 @@ int main() {       //ÏÈ´æ´¢·¶Î§ÄÚËùÓĞÍêÊı
 		if (sum == i) a[i] = 1;
 	}
 	int n;
-	while (scanf("%d", &n) != EOF) { //ÎÄ¼şÎ²
+	while (scanf("%d", &n) != EOF) { //æ–‡ä»¶å°¾
 		int flag = 1;
 		printf("%d:", n);
 		for (int i = 1; i <= n; i++)

@@ -1,55 +1,60 @@
-#define _CRT_SECURE_NO_WARNINGS 1
-/*个人思考核心：最后一列和第一行是特殊的*/
-
-// #include <stdio.h> 
-// int a[39][39];
-// int main()
-// {
-// 	int i, j, n;
-// 	scanf("%d", &n);
-// 	a[0][(n + 1) / 2 - 1] = 1;
-// 	int x = 0, y = (n + 1) / 2 - 1;
-// 	for (i = 2; i <= n*n; i++) {
-// 		if (x == 0 && y == n - 1) {
-// 			a[++x][y] = i;
-// 		}
-// 		else if (x == 0) {
-// 			a[n - 1][++y] = i;
-// 			x = n - 1;
-// 		}
-// 		else if (y == n-1) {
-// 			a[--x][0] = i;
-// 			y = 0;
-// 		}
-// 		else if (a[x - 1][y + 1] == 0)
-// 			a[--x][++y] = i;
-// 		else a[++x][y] = i;
-// 	}
-// 	for (i = 0; i < n; i++) {
-// 		for (j = 0; j < n; j++)
-// 			printf("%d ", a[i][j]);
-// 		puts("");
-// 	}
-// }
-
-/*最核心的点：只要数字右上边（逻辑右上）是空的，
-			  那就输进去，否则就放正下方（逻辑下）*/
-#include <stdio.h> 
-int a[40][40];
+#include<stdio.h>
 int main()
 {
-	int i, j, n;
-	scanf("%d", &n);
-	int x = 1, y = (n + 1) / 2;
-	for (i = 1; i <= n * n; i++) {
-		a[x][y] = i;
-		if (!(a[(x - 2 + n) % n + 1][(y + n) % n + 1]))
-			x = (x - 2 + n) % n + 1, y = y % n + 1;
-		else x = x % n + 1;
-	}
-	for (i = 1; i <= n; i++) {
-		for (j = 1; j <= n; j++)
-			printf("%d ", a[i][j]);
-		puts("");
-	}
+    int n,m, i,j,a[30],b[30],c[30],t=1,k=0;
+    scanf("%d", &m);
+    for (i = 0; i < m; i++)  scanf("%d", &a[i]);
+    scanf("%d", &n);
+    for (j = 0; j < n; j++)  scanf("%d", &b[j]);
+    for (i = 0; i < m; i++) {           //a[i]开始与b[i]逐个对比
+	t = 1;                          //筛选出，用c[k]记录
+	for (j = 0; j < n; j++)         //t起flag的作用，用来判断（方法之一）
+	    if (a[i] == b[j]) {
+		t = 0; break;
+	    }
+	if (t) 
+	    c[k++] = a[i];
+    }
+    for (j = 0; j < n; j++) {          //b[i]与a[i]逐个对比
+	t = 1;
+	for (i = 0; i < m; i++)
+	    if (b[j] == a[i]) {
+		t = 0; break;
+	    }
+	if (t) 
+	    c[k++] = b[j];
+    }
+    printf("%d", c[0]);     //先打出第一个，防止行末空格
+    for(i=1;i<k;i++){
+	for(j=0;j<i;j++)
+	    if(c[i]==c[j])    
+		break;
+	if(j==i)
+	    printf(" %d",c[i]);
+    }
+
 }
+
+// 变式：按给出数字顺序输出
+//     两个数组里全都不重复的元素
+
+//#include <stdio.h>
+//int a[30], b[30], c[110];
+//int main()
+//{
+//    int n, m, i, j, k = 0;
+//    scanf("%d", &m);
+//    for (i = 0; i < m; i++) {
+//        scanf("%d", &a[i]); 
+//        c[a[i]]++;
+//    }
+//    scanf("%d", &n);
+//    for (j = 0; j < n; j++) {
+//        scanf("%d", &b[j]);
+//        c[b[j]]++;
+//    }
+//    for (i = 0; i < m; i++) 
+//        if (c[a[i]] == 1) printf("%d ", a[i]);
+//    for (j = 0; j < n; j++)
+//        if (c[b[j]] == 1) printf("%d ", b[j]);
+//}

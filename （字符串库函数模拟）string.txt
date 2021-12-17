@@ -1,0 +1,101 @@
+(一)strlen
+
+int my_strlen(const char* str)
+{
+	//count记录字符串的长度
+	int count = 0;
+	while (*str++)
+		count++;
+	return count;
+}
+
+
+（二）strcpy  
+
+void和char类型自定义函数都可以，关键掌握核心思想，随机应变。
+
+//注意：assert是断言的意思，确保字符串不为空，在使用assert时要引入头文件:#include<assert.h>
+
+char* mycpy(char*dst, const char* src){
+    assert(dst);  assert(src);
+    while(*dst++ = *src++) ;
+    *dst='\0';
+    return dst;
+}
+
+
+(三）strcat
+
+void mycat(char* dst, const char* src) {
+	assert(dst); assert(src);
+	while (*dst) dst++;
+	while (*dst++ = *src++) ;
+}
+
+
+（四）strcmp
+
+比较字符串str1(前者)和str2（后者）,当str1大于str2返回1，当str1小于str2返回-1，当str1与str2相等返回0；
+
+int mycmp(char* dst, const char* src) {
+	assert(dst); assert(src);
+	while (*dst == *src && *dst != '\0') {
+		dst++; src++;
+	}
+	return *dst - *src;
+}
+
+
+（五）strstr
+strstr在进行字串查找时，如果找到，则返回字串在源字符串中第一次出现的位置；如果没有找到，则返回NULL。
+
+
+/*start指向str，用来记录匹配的起始位置，str_p从start开始移动，sub_p
+每次返回最初字符进行相应匹配。如果匹配不成功，start从str当前位置向后
+移动，进行下一轮匹配*/
+char* mystr(const char* str, const char* sub)
+{
+	assert(str);
+	assert(sub);
+	const char* str_p = str;//sub_p指针遍历源字符串进行比较
+	const char* start = str;//start指针保存匹配成功的位置
+	const char* sub_p = sub;//sub_p遍历子串进行比较
+	while (*start != '\0')
+	{
+		str_p = start;
+		sub_p = sub;//每次匹配不成功时都要从子串的起始处重新比较
+		while (*str_p != '\0' && *sub_p != '\0')
+		{
+			if (*str_p == *sub_p)
+			{
+				str_p++;
+				sub_p++;
+			}
+			else
+			{
+				break;
+			}
+		}
+		if (*sub_p == '\0') //相当于把sub每一位都匹配成功了
+		{
+			return start;
+		}
+		start++;//当前位置开始匹配不成功时，从下一个位置开始尝试匹配
+	}
+	return NULL;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,7 +1,7 @@
 int calScore(struct Student* stu) {
-    int sum = stu->C + stu->English + stu->math;
-    if (stu->C < 60 || stu->math < 60 || stu->English < 60) {
-        stu->grade = 1;
+    int sum = stu->C + stu->English + stu->math;   
+    if (stu->C < 60 || stu->math < 60 || stu->English < 60 || sum<=180) {
+        stu->grade = 1;     //一定要好好看清题意，180分本身也是不及格
         return 0;
     }
     if (sum > 270) 

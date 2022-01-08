@@ -17,17 +17,17 @@ void initialize(con* contact) {
 	contact->capacity = addsize;
 }
 void operate(int t,con* contact) {
-	printf("输入姓名：\n"); 
+	printf("杈撳叆濮撳悕锛歕n"); 
 	scanf("%s",contact->data[t].name);
-	printf("输入性别：\n"); 
+	printf("杈撳叆鎬у埆锛歕n"); 
 	scanf("%s", contact->data[t].sex);
-	printf("输入年龄：\n"); 
+	printf("杈撳叆骞撮緞锛歕n"); 
 	scanf("%d", &contact->data[t].age);
-	printf("输入电话号码：\n");
+	printf("杈撳叆鐢佃瘽鍙风爜锛歕n");
 	scanf("%s", contact->data[t].phone);
-	printf("输入地址：\n");
+	printf("杈撳叆鍦板潃锛歕n");
 	scanf("%s", contact->data[t].addr);
-	printf("输入完成\n"); 
+	printf("杈撳叆瀹屾垚\n"); 
 }
 int finding(char *target, con*contact) {
 	for (int i = 0; i < contact->number; i++) 
@@ -35,7 +35,7 @@ int finding(char *target, con*contact) {
 	return 0;
 }
 void print(con*contact) {
-	printf("%-15s\t%-10s\t%-5s\t%-12s\t%-20s\n", "姓名", "性别", "年龄", "号码", "地址");
+	printf("%-15s\t%-10s\t%-5s\t%-12s\t%-20s\n", "濮撳悕", "鎬у埆", "骞撮緞", "鍙风爜", "鍦板潃");
 	for (int i = 0; i < contact->number; i++)
 		printf("%-15s\t%-10s\t%-5d\t%-12s\t%-20s\n", contact->data[i].name, contact->data[i].sex, 
 			contact->data[i].age, contact->data[i].phone, contact->data[i].addr);

@@ -7,42 +7,42 @@ int main()
 		menu();
 		char target[max];
 		int n,i,t;
-		printf("你想干什么？\n");
+		printf("浣犳兂骞蹭粈涔堬紵\n");
 		scanf("%d", &n);
 		switch (n) {
-		case EXIT: printf("拜拜了您嘞\n"); return 0;
+		case EXIT: printf("鎷滄嫓浜嗘偍鍢瀄n"); return 0;
 		case ADD: 
 			operate(number,data); number++; break;
 		case DEL:
-			printf("输入要删除的姓名：\n");
+			printf("杈撳叆瑕佸垹闄ょ殑濮撳悕锛歕n");
 			scanf("%s", target);
 			t = finding(target,data,number);
-			if (t == 0) printf("没这个人，傻缺\n");
+			if (t == 0) printf("娌¤繖涓汉锛屽偦缂篭n");
 			else {
 				for (i = t; i < number; i++) 
 					data[i] = data[i + 1];
 				number--;
-				printf("删除完成\n");
+				printf("鍒犻櫎瀹屾垚\n");
 			}
 			break;
 		case SEARCH: 
-			printf("输入要查找的姓名：\n");
+			printf("杈撳叆瑕佹煡鎵剧殑濮撳悕锛歕n");
 			scanf("%s", target);
 			t = finding(target,data,number);
-			if (t == 0) printf("没这个人，傻缺\n");
+			if (t == 0) printf("娌¤繖涓汉锛屽偦缂篭n");
 			else {
-				printf("%-15s\t%-10s\t%-5s\t%-12s\t%-20s\n", "姓名", "性别", "年龄", "号码", "地址");
+				printf("%-15s\t%-10s\t%-5s\t%-12s\t%-20s\n", "濮撳悕", "鎬у埆", "骞撮緞", "鍙风爜", "鍦板潃");
 				printf("%-15s\t%-10s\t%-5d\t%-12s\t%-20s\n", data[t].name, data[t].sex, data[t].age,
 					data[t].phone, data[t].addr);
 			}
 			break;
 		case MODIFY: 
-			printf("输入要修改的姓名：\n");
+			printf("杈撳叆瑕佷慨鏀圭殑濮撳悕锛歕n");
 			scanf("%s", target);
 			t = finding(target,data,number);
-			if (t == 0) printf("没这个人，傻缺\n");
+			if (t == 0) printf("娌¤繖涓汉锛屽偦缂篭n");
 			else {
-				printf("接下来开始修改\n");
+				printf("鎺ヤ笅鏉ュ紑濮嬩慨鏀筡n");
 				operate(t,data);
 			}
 			break;

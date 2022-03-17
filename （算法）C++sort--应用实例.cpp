@@ -12,15 +12,15 @@ typedef struct {
 }stu;
 bool cmp(stu a, stu b)
 {
-    if (a.sum > b.sum) return 1;//×Ü·Ö´óÓÚb¾Í·µ»Ø1
-    else if (a.sum < b.sum) return 0;//·ñÔò·µ»Ø0
-    else//ÏàµÈ
+    if (a.sum > b.sum) return 1;//æ€»åˆ†å¤§äºbå°±è¿”å›1
+    else if (a.sum < b.sum) return 0;//å¦åˆ™è¿”å›0
+    else//ç›¸ç­‰
     {
-        if (a.c > b.c) return 1;//±È½ÏÓïÎÄ
+        if (a.c > b.c) return 1;//æ¯”è¾ƒè¯­æ–‡
         else if (a.c < b.c) return 0;
-        else//ÓïÎÄÒ²ÏàµÈ
+        else//è¯­æ–‡ä¹Ÿç›¸ç­‰
         {
-            if (a.num > b.num) return 0;//±È½Ï±àºÅ
+            if (a.num > b.num) return 0;//æ¯”è¾ƒç¼–å·
             else return 1;
         }
     }

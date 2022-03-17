@@ -1,5 +1,5 @@
-//boy ºÍ girl Ã»ÓÐµ¥´ÊÖØºÏ£¬ÓÃ×î¼òµ¥ÆÓËØµÄË¼Ïë
-//ÕâµÀÌâÒÀ¾ÉÃ»ÓÐÄÇÃ´Ã÷°×
+//boy å’Œ girl æ²¡æœ‰å•è¯é‡åˆï¼Œç”¨æœ€ç®€å•æœ´ç´ çš„æ€æƒ³
+//è¿™é“é¢˜ä¾æ—§æ²¡æœ‰é‚£ä¹ˆæ˜Žç™½
 
 #include<stdio.h>
 int main()

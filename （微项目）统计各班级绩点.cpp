@@ -5,11 +5,11 @@
 using namespace std;
 
 
-int credit[15];  //Ñ§·Ö×ÜÊý
+int credit[15];  //å­¦åˆ†æ€»æ•°
 typedef struct stu {
-	int grade[15];   //¸÷¿Æ³É¼¨
-	double goal[15]; //¸÷¿ÆÑ§·Ö
-	double get;      //Ñ§·Ö×ÜÊý
+	int grade[15];   //å„ç§‘æˆç»©
+	double goal[15]; //å„ç§‘å­¦åˆ†
+	double get;      //å­¦åˆ†æ€»æ•°
 	string name;
 }stu;
 
@@ -25,20 +25,20 @@ bool cmp(stu a1, stu a2) {
 
 int main()
 {
-	int n, m, g, i, j, k;   // n m g ÊÇ °à¼¶Êý ¿ÆÄ¿Êý Ñ§ÉúÊý
-	 //i j k ·Ö±ðÊÇ ËæÐÔ Ñ§Éú±àºÅ °à¼¶±àºÅ
+	int n, m, g, i, j, k;   // n m g æ˜¯ ç­çº§æ•° ç§‘ç›®æ•° å­¦ç”Ÿæ•°
+	 //i j k åˆ†åˆ«æ˜¯ éšæ€§ å­¦ç”Ÿç¼–å· ç­çº§ç¼–å·
 	cin >> n;
 	cin >> m;
-	for (i = 0; i < m; i++) {     //i¿ØÖÆ¿ÆÄ¿
+	for (i = 0; i < m; i++) {     //iæŽ§åˆ¶ç§‘ç›®
 		cin >> credit[i];
 	}
 
 	for (k = 1; k <= n; k++) {
 		cin >> g;
-		for (j = 0; j < g; j++) {      //Ã¿¸öÑ§Éú
+		for (j = 0; j < g; j++) {      //æ¯ä¸ªå­¦ç”Ÿ
 			double sum = 0;
 			cin >> c[k].s[j].name;
-			for (i = 0; i < m; i++) {    //i¿ØÖÆ¿ÆÄ¿
+			for (i = 0; i < m; i++) {    //iæŽ§åˆ¶ç§‘ç›®
 				cin >> c[k].s[j].grade[i];
 				if (c[k].s[j].grade[i] >= 60) {
 					c[k].s[j].goal[i] = (c[k].s[j].grade[i] - 50) * 1.0 / 10 * credit[i];
@@ -57,12 +57,12 @@ int main()
 		for (i = 0; i < j; i++) {
 			printf("NO.%d : ", i + 1);
 			cout << c[k].s[i].name;
-			printf("\n¸÷¿Æ³É¼¨ :");
+			printf("\nå„ç§‘æˆç»© :");
 			for (int z = 0; z < m; z++) printf("%-3d ", c[k].s[i].grade[z]);
 			printf("\n");
-			printf("¸÷¿ÆÑ§·Ö: ");
+			printf("å„ç§‘å­¦åˆ†: ");
 			for (int z = 0; z < m; z++) printf("%-3.2lf ", c[k].s[i].goal[z]);
-			printf("\n×Ü¼¨µã£º %.2lf\n", c[k].s[i].get);
+			printf("\næ€»ç»©ç‚¹ï¼š %.2lf\n", c[k].s[i].get);
 			printf("\n");
 		}
 		puts("");

@@ -6,12 +6,12 @@ int main()
 		menu();
 		scanf("%d", &a);
 		switch (a) {
-		case 1:  printf("请开始你的表演\n"); game(board);
+		case 1:  printf("璇峰紑濮嬩綘鐨勮〃婕擻n"); game(board);
 			break;
-		case 0:  printf("有多远滚多远\n");
+		case 0:  printf("鏈夊杩滄粴澶氳繙\n");
 			a = 0;
 			break;
-		default: printf("我再给你一次机会，给爷好好选\n");
+		default: printf("鎴戝啀缁欎綘涓�娆℃満浼氾紝缁欑埛濂藉ソ閫塡n");
 			break;
 		}
 	} while (a);

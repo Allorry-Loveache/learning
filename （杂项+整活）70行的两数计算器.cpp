@@ -3,7 +3,7 @@
 #include<time.h>
 #include<stdlib.h>
 #include<ctype.h>
-#define ÁõºÆÈ» 250
+#define åˆ˜æµ©ç„¶ 250
 enum input {
 	EXIT,
 	ADD,
@@ -25,10 +25,10 @@ int divide(int a, int b) {
 }
 void menu() {
 	printf("\n******************************\n");
-	printf("*** 0. ÍË³ö * 1. ¼Ó·¨ ********\n");
-	printf("*** 2. ¼õ·¨ * 3. ³Ë·¨ ********\n");
-	printf("*** 4. ³ı·¨ ******************\n");
-	printf("****** ÊäÆäËûµÄ¸øÒ¯ÅÀ ********\n\n");
+	printf("*** 0. é€€å‡º * 1. åŠ æ³• ********\n");
+	printf("*** 2. å‡æ³• * 3. ä¹˜æ³• ********\n");
+	printf("*** 4. é™¤æ³• ******************\n");
+	printf("****** è¾“å…¶ä»–çš„ç»™çˆ·çˆ¬ ********\n\n");
 }
 void unit(int (*p)(int, int)) {
 	while (1) {

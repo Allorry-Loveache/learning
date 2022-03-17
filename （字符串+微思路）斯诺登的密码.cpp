@@ -6,8 +6,8 @@ string a;
 string b[27] = { "#","one","two","three","four",
 "five","six","seven","eight","nine","ten","eleven",
 "twelve", "thirteen", "fourteen", "fifteen", "sixteen",
-"seventeen", "eighteen", "nineteen", "twenty"," a ",   //这个a挺烦的
-"both","another","first","second","third" };//对应
+"seventeen", "eighteen", "nineteen", "twenty"," a ",   //脮芒赂枚a脥娄路鲁碌脛
+"both","another","first","second","third" };//露脭脫娄
 int d[30] = { 0,1,4,9,16,25,36,49,64,81,00,21,44,69,96,25,56,89,24,61,0,1,4,1,1,4,9 };
 int c[10];
 int main()

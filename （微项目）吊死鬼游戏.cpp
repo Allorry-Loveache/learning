@@ -1,11 +1,11 @@
-//´úÂëÕ¹Ê¾
+//ä»£ç å±•ç¤º
 #include<iostream>
 #include<cstdlib>
 #include<ctime>
 
 using namespace std;
 const int NUM = 5;
-const string country[] = { "chinese", "japan", "korea", "india", "american" }; //²ÂµÄµ¥´Ê
+const string country[] = { "chinese", "japan", "korea", "india", "american" }; //çŒœçš„å•è¯
 
 int printMan(int guesses) {
     if (guesses < 6)
@@ -23,7 +23,7 @@ int printMan(int guesses) {
 }
 
 int main() {
-    // Ëæ»úÊı
+    // éšæœºæ•°
     srand(time(0));
     string target = country[rand() % NUM];
     int length = target.length();
@@ -32,7 +32,7 @@ int main() {
     cout << "[" << attempt << "]" << endl;
     while (guesses > 0 && attempt != target) {
         char letter;
-        cout << "ÊäÈëÄã²ÂµÄ×ÖÄ¸:";
+        cout << "è¾“å…¥ä½ çŒœçš„å­—æ¯:";
         cin >> letter;
         int loc = target.find(letter);
         if (loc == string::npos) {
@@ -51,7 +51,7 @@ int main() {
         printMan(guesses);
     }
 
-    if (guesses > 0) cout << "¹§Ï²Äã²Â¶ÔÁË£¬ÓÎÏ·Ê¤Àû" << endl;
-    else cout << "Ğ¡ÈËÒÑ¾­ËÀÁË... ÕıÈ·µÄµ¥´ÊÊÇ" << target << endl;
+    if (guesses > 0) cout << "æ­å–œä½ çŒœå¯¹äº†ï¼Œæ¸¸æˆèƒœåˆ©" << endl;
+    else cout << "å°äººå·²ç»æ­»äº†... æ­£ç¡®çš„å•è¯æ˜¯" << target << endl;
     return 0;
 }

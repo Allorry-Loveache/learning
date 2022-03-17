@@ -1,8 +1,8 @@
-/*substr Éú³É×Ó´®£¬ÊäÈëÎ»ÖÃºÍ³¤¶È
+/*substr ç”Ÿæˆå­ä¸²ï¼Œè¾“å…¥ä½ç½®å’Œé•¿åº¦
 
-insert ÔÚ×Ö·û´®ÖÐ²åÈë×Ö·û´®
+insert åœ¨å­—ç¬¦ä¸²ä¸­æ’å…¥å­—ç¬¦ä¸²
 
-find ²éÕÒ×Ö·û´®ÖÐÄ³¸ö×Ö·û´®µÄÎ»ÖÃ²¢·µ»ØËüµÄÎ»ÖÃ*/
+find æŸ¥æ‰¾å­—ç¬¦ä¸²ä¸­æŸä¸ªå­—ç¬¦ä¸²çš„ä½ç½®å¹¶è¿”å›žå®ƒçš„ä½ç½®*/
 
 
 
@@ -15,7 +15,7 @@ int n, a;
 string qwq;
 string c1;
 string b1;
-int b, c, d = -1, e;//²¢²»È«ÓÐÓÃ
+int b, c, d = -1, e;//å¹¶ä¸å…¨æœ‰ç”¨
 int main()
 {
 	cin >> n;
@@ -23,13 +23,13 @@ int main()
 	for (int i = 0; i < n; i++)
 	{
 		cin >> a;
-		if (a == 1)//²Ù×÷1
+		if (a == 1)//æ“ä½œ1
 		{
 			cin >> b1;
 			qwq += b1;
 			cout << qwq << endl;
 		}
-		else if (a == 2)//²Ù×÷2
+		else if (a == 2)//æ“ä½œ2
 		{
 			cin >> b >> c;
 			c1 = qwq.substr(b, c);
@@ -37,16 +37,16 @@ int main()
 			cout << qwq;
 			cout << endl;
 		}
-		else if (a == 3)//²Ù×÷3
+		else if (a == 3)//æ“ä½œ3
 		{
 			cin >> b >> b1;
 			qwq.insert(b, b1);
 			cout << qwq << endl;
 		}
-		else if (a == 4)//²Ù×÷4
+		else if (a == 4)//æ“ä½œ4
 		{
 			cin >> b1;
-			if (qwq.find(b1) < qwq.size())//ÕÒ²»µ½»á·µ»ØÒ»¸ö¹îÒìµÄÊý×Ö£¨·´Õý±È×Ö·û´®³¤£©
+			if (qwq.find(b1) < qwq.size())//æ‰¾ä¸åˆ°ä¼šè¿”å›žä¸€ä¸ªè¯¡å¼‚çš„æ•°å­—ï¼ˆåæ­£æ¯”å­—ç¬¦ä¸²é•¿ï¼‰
 				cout << qwq.find(b1) << endl;
 			else
 				cout << -1 << endl;

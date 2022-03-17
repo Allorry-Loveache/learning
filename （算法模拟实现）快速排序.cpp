@@ -1,5 +1,5 @@
 
-int read() {         //¿ì¶Á
+int read() {         //å¿«è¯»
 	char ch = getchar();
 	int s = 0, w = 1;
 	while (ch < '0' || ch>'9') {
@@ -13,7 +13,7 @@ int read() {         //¿ì¶Á
 	return s * w;
 }
 
-void write(int s) {  //¿ìĞ´
+void write(int s) {  //å¿«å†™
 	int k = 0, len = 0;
 	if (s == 0)
 		putchar('0');
@@ -29,22 +29,22 @@ void write(int s) {  //¿ìĞ´
 
 int n, a[1000001];
 
-void qsort(int l, int r)//Ó¦ÓÃ¶ş·ÖË¼Ïë
+void qsort(int l, int r)//åº”ç”¨äºŒåˆ†æ€æƒ³
 {
-	int mid = a[(l + r) / 2];//ÖĞ¼äÊı
+	int mid = a[(l + r) / 2];//ä¸­é—´æ•°
 	int i = l, j = r;
-	while (i <= j) {//ÕâÀï×¢ÒâÒªÓĞ=
-		while (a[i] < mid) i++;//²éÕÒ×ó°ë²¿·Ö±ÈÖĞ¼äÊı´óµÄÊı
-		while (a[j] > mid) j--;//²éÕÒÓÒ°ë²¿·Ö±ÈÖĞ¼äÊıĞ¡µÄÊı
-		if (i <= j)//Èç¹ûÓĞÒ»×é²»Âú×ãÅÅĞòÌõ¼ş£¨×óĞ¡ÓÒ´ó£©µÄÊı
+	while (i <= j) {//è¿™é‡Œæ³¨æ„è¦æœ‰=
+		while (a[i] < mid) i++;//æŸ¥æ‰¾å·¦åŠéƒ¨åˆ†æ¯”ä¸­é—´æ•°å¤§çš„æ•°
+		while (a[j] > mid) j--;//æŸ¥æ‰¾å³åŠéƒ¨åˆ†æ¯”ä¸­é—´æ•°å°çš„æ•°
+		if (i <= j)//å¦‚æœæœ‰ä¸€ç»„ä¸æ»¡è¶³æ’åºæ¡ä»¶ï¼ˆå·¦å°å³å¤§ï¼‰çš„æ•°
 		{
-			swap(a[i], a[j]);//½»»»
+			swap(a[i], a[j]);//äº¤æ¢
 			i++;
 			j--;
 		}
 	}
-	if (l < j) qsort(l, j);//µİ¹éËÑË÷×ó°ë²¿·Ö
-	if (i < r) qsort(i, r);//µİ¹éËÑË÷ÓÒ°ë²¿·Ö
+	if (l < j) qsort(l, j);//é€’å½’æœç´¢å·¦åŠéƒ¨åˆ†
+	if (i < r) qsort(i, r);//é€’å½’æœç´¢å³åŠéƒ¨åˆ†
 }
 
 int main()

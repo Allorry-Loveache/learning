@@ -28,14 +28,14 @@ void display(char board[row][col]) {
 }
 void human(char board[row][col]) {
 	while (1) {
-		printf("ÇëÊäÈëÄãµÄ×ø±ê:\n");
+		printf("è¯·è¾“å…¥ä½ çš„åæ ‡:\n");
 		int a, b;
 		scanf("%d %d", &a, &b);
 		if (a <= row && b <= col && a >= 1 && b >= 1 && board[a-1][b-1] == ' ') {
 			board[a-1][b-1] = '*'; 
 			display(board);  break;
 		}
-		else printf("ÎŞĞ§×ø±ê£¬Ã»³¤´óÄÔ£¿\n");
+		else printf("æ— æ•ˆåæ ‡ï¼Œæ²¡é•¿å¤§è„‘ï¼Ÿ\n");
 	}
 }
 void robot(char board[row][col]) {
@@ -45,7 +45,7 @@ void robot(char board[row][col]) {
 		b = rand() % col;
 		if (board[a][b] == ' ') {
 			board[a][b] = '#';
-			printf("ÄãµÄÉ¡±ø¶ÔÊÖ¸ÉµÄºÃÊÂ:\n");
+			printf("ä½ çš„ä¼å…µå¯¹æ‰‹å¹²çš„å¥½äº‹:\n");
 			display(board);  break;
 		}
 	}
@@ -82,9 +82,9 @@ char judgement(char board[row][col]) {
 }
 int s (a) {
 	switch(a){
-    case '$': printf("Æ½¾Ö"); return 1; break;
+    case '$': printf("å¹³å±€"); return 1; break;
     case '#': printf("Loser!!!"); return 1; break;
-    case '*': printf("¸Ò²»¸ÒÔÙÀ´£¿"); return 1; break;
+    case '*': printf("æ•¢ä¸æ•¢å†æ¥ï¼Ÿ"); return 1; break;
     default: return 0;  break;
 }
 }

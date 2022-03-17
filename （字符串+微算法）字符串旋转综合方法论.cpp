@@ -1,8 +1,8 @@
 （I）
 //思路一： 设左旋字数为n，每次把第一个字符放到最后，其余字符
-往前挪动，重复n次
+//往前挪动，重复n次
 //注： 指针在涉及循环时慎用++ --，指针早就不知道指哪里去了，
-还循环你个大头鬼啊
+//还循环你个大头鬼啊
 
 #define _CRT_SECURE_NO_WARNINGS 1
 #include <stdio.h>
@@ -27,8 +27,8 @@ int main()
 
 
 //思路二： 逆序思想。设 abcdefg,左旋2个，先分开：
-ab  cdefg  ，  这两部分同时逆转
-ba  gfedc  ，  再整体合起来一起逆转即可。
+//ab  cdefg  ，  这两部分同时逆转
+//ba  gfedc  ，  再整体合起来一起逆转即可。
 
 #include <stdio.h>
 #include <string.h>

@@ -1,5 +1,5 @@
 
-//рт║╝=║╞н╙╠Й╫з╣Цё╛еп╤овС╠ъ╨мср╠ъ
+//Д╩╔Б─≤=Б─≥Д╦╨Ф═┤Х┼┌Г┌╧О╪▄Е┬╓Ф√╜Е╥╕Х╬╧Е▓▄Е▐ЁХ╬╧
 #include<iostream>
 #include<string>
 using namespace std;

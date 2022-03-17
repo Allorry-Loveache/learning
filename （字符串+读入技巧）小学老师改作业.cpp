@@ -11,7 +11,7 @@ int main()
     while (n--) {
         a = 0; b = 0;
         cin >> ch;
-        if (isdigit(ch)) {   //ÉÏÀ´¾ÍÊÇÊı×Ö£¬Ò»Ö±Íùºó¶ÁÈë
+        if (isdigit(ch)) {   //ä¸Šæ¥å°±æ˜¯æ•°å­—ï¼Œä¸€ç›´å¾€åè¯»å…¥
             while (ch != ' ') {
                 a = a * 10 + ch - '0';
                 ch = getchar();
@@ -27,13 +27,13 @@ int main()
         if (c == 'c') cout << a << "*" << b << "=" << a * b << endl, ans = a * b;
 
         int count = 0;
-        if (a == 0) count++;    //0Ò²ÒªËãÒ»Î»
+        if (a == 0) count++;    //0ä¹Ÿè¦ç®—ä¸€ä½
         else while (a) a /= 10, count++;
         if (b == 0) count++;
         else while (b) b /= 10, count++;
         if (ans == 0) count++;
-        else if (ans < 0) count++, ans *= -1;  //ÓĞ¿ÉÄÜ¸ºÊı£¬¸ººÅÕ¼Ò»Î»
+        else if (ans < 0) count++, ans *= -1;  //æœ‰å¯èƒ½è´Ÿæ•°ï¼Œè´Ÿå·å ä¸€ä½
         while (ans) ans /= 10, count++;
-        cout << count + 2 << endl;   //×îºó±ğÍüÁËÁ½¸ö·ûºÅ
+        cout << count + 2 << endl;   //æœ€ååˆ«å¿˜äº†ä¸¤ä¸ªç¬¦å·
     }
 }

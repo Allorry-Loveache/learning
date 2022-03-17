@@ -1,13 +1,13 @@
-inline int IntRead()//ÄÚÁªº¯ÊıÉÔÎ¢¿ìÒ»µãµã 
+inline int IntRead()//å†…è”å‡½æ•°ç¨å¾®å¿«ä¸€ç‚¹ç‚¹ 
 {
     char ch = getchar();
     int s = 0, w = 1;
-    while (ch < '0' || ch > '9')   //¿ªÍ·¿ÉÄÜÎªÕı¸ººÅ£¬²¢ÇÒÅÅ³ı¿Õ¸ñ
+    while (ch < '0' || ch > '9')   //å¼€å¤´å¯èƒ½ä¸ºæ­£è´Ÿå·ï¼Œå¹¶ä¸”æ’é™¤ç©ºæ ¼
     {
         if (ch == '-') w = -1;
         ch = getchar();
     }
-    while (ch >= '0' && ch <= '9') //Êı×ÖµÄ»ØºÏ
+    while (ch >= '0' && ch <= '9') //æ•°å­—çš„å›åˆ
     {
         s = s * 10 + ch - '0',
             ch = getchar();
@@ -20,12 +20,12 @@ inline string StringRead()
 {
     string str;
     char s = getchar();
-    //´¦Àí¶àÓà»Ø³µ»ò¿Õ¸ñ 
+    //å¤„ç†å¤šä½™å›è½¦æˆ–ç©ºæ ¼ 
     while (s == ' ' || s == '\n' || s == '\r')
     {
         s = getchar();
     }
-    //²»¶Ï¶ÁÈëÖ±µ½Óöµ½»Ø³µ»ò¿Õ¸ñ 
+    //ä¸æ–­è¯»å…¥ç›´åˆ°é‡åˆ°å›è½¦æˆ–ç©ºæ ¼ 
     while (s != ' ' && s != '\n' && s != '\r')
     {
         str += s;
@@ -37,10 +37,10 @@ inline string StringRead()
 
 inline double DoubleRead()
 {
-    //doubleµÄÖµ¿ÉÄÜºÜ´ó£¬ËùÒÔ¿ªlong long 
+    //doubleçš„å€¼å¯èƒ½å¾ˆå¤§ï¼Œæ‰€ä»¥å¼€long long 
     long long s = 0, w = 1, k = 0, n = 0, m = 0;
     char ch = getchar();
-    //ºÍintÒ»Ã«Ò»ÑùÓĞÄ¾ÓĞ 
+    //å’Œintä¸€æ¯›ä¸€æ ·æœ‰æœ¨æœ‰ 
     while (ch < '0' || ch > '9')
     {
         if (ch == '-') w = -1;
@@ -48,7 +48,7 @@ inline double DoubleRead()
     }
     while ((ch >= '0' && ch <= '9') || ch == '.')
     {
-        //n = 0´ú±í¶ÁÈëÕûÊı£¬= 1´ú±í¶ÁÈëĞ¡Êı 
+        //n = 0ä»£è¡¨è¯»å…¥æ•´æ•°ï¼Œ= 1ä»£è¡¨è¯»å…¥å°æ•° 
         if (ch == '.')
             n = 1;
         else if (n == 0)

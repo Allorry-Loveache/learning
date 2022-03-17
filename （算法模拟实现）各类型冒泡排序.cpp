@@ -7,7 +7,7 @@ void Swap(char* buf1, char* buf2, size_t width)
 {
     unsigned int i = 0;
     assert(buf1 && buf2);
-    for (i = 0; i < width; i++)//°´×Ö½Ú´óÐ¡½»»»
+    for (i = 0; i < width; i++)//æŒ‰å­—èŠ‚å¤§å°äº¤æ¢
     {
         char tmp = *buf1;
         *buf1 = *buf2;
@@ -40,7 +40,7 @@ struct Stu
     int age;
 };
 
-int cmp_int(const void* e1, const void* e2)//ÕûÐÎ±È½Ï
+int cmp_int(const void* e1, const void* e2)//æ•´å½¢æ¯”è¾ƒ
 {
     return *(int*)e1 - *(int*)e2;
 }
@@ -48,13 +48,13 @@ int cmp_int(const void* e1, const void* e2)//ÕûÐÎ±È½Ï
 
 cmp_stu_age(const void* e1, const void* e2)
 {
-    return ((struct Stu*)e1)->age - ((struct Stu*)e2)->age;//¼ýÍ·µÄÓÅÏÈ¼¶¸ß£¬ËùÒÔÔÚÇ¿ÖÆ×ª»»Ê±£¬Ó¦¸Ã¼ÓÉÏ¡°£¨£©¡±
+    return ((struct Stu*)e1)->age - ((struct Stu*)e2)->age;//ç®­å¤´çš„ä¼˜å…ˆçº§é«˜ï¼Œæ‰€ä»¥åœ¨å¼ºåˆ¶è½¬æ¢æ—¶ï¼Œåº”è¯¥åŠ ä¸Šâ€œï¼ˆï¼‰â€
 }
 cmp_stu_name(const void* e1, const void* e2)
 {
     return strcmp(((struct Stu*)e1)->name, ((struct Stu*)e2)->name);
 }
-char* cmp_str(const void* e1, const void* e2)//×Ö·û´®±È½Ï
+char* cmp_str(const void* e1, const void* e2)//å­—ç¬¦ä¸²æ¯”è¾ƒ
 {
     return strcmp(*(char**)e1, *(char**)e2);
 

@@ -2,8 +2,8 @@
 #include<algorithm>
 using namespace std;
 int n, sum = 0;
-int a[105], b[105], c[105], d[105];  //ĞĞ£¬ÁĞ£¬Ö÷¶Ô½ÇÏß£¬¸±¶Ô½ÇÏß
-//ÊÊÁ¿¼ÓÆ«ÒÆÁ¿
+int a[105], b[105], c[105], d[105];  //è¡Œï¼Œåˆ—ï¼Œä¸»å¯¹è§’çº¿ï¼Œå‰¯å¯¹è§’çº¿
+//é€‚é‡åŠ åç§»é‡
 void dfs(int f) {  // f == row
 	if (f == n + 1) {
 		sum++;
@@ -16,7 +16,7 @@ void dfs(int f) {  // f == row
 	}
 
 	for (int i = 1; i <= n; i++) {  // i == col
-		if (b[i] || c[f + i] || d[f - i + n]) continue;//±»Õ¼ÁìÁË
+		if (b[i] || c[f + i] || d[f - i + n]) continue;//è¢«å é¢†äº†
 		a[f] = i;
 		b[i] = 1, c[i + f] = 1, d[f - i + n] = 1;
 		dfs(f + 1);

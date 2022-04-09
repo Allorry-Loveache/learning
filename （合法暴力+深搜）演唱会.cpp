@@ -2,9 +2,9 @@
 #include<algorithm>
 using namespace std;
 int nex[2][2] = { {1,0},{0,1} };
-int m, n, k, sum = 0;
+int m, n, k, sum=0;
 string a[105];
-void dfs(int x, int y, int f, int v) {//坐标xy，层数f，控制方向v
+void dfs(int x,int y,int f,int v) {//鍧愭爣xy锛屽眰鏁癴锛屾帶鍒舵柟鍚憊
 	if (x < 0 || x >= n || y < 0 || y >= n || a[x][y] == '#') return;
 	if (f >= k) { sum++; return; }
 	int tx = x + nex[v][0], ty = y + nex[v][1];
@@ -23,6 +23,6 @@ int main()
 			dfs(i, j, 1, 1);
 		}
 	}
-	if (k == 1) sum /= 2;
+	if (k == 1) sum /= 2; //楝间竴鏍风殑鐗瑰垽
 	cout << sum;
 }

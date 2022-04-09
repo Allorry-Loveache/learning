@@ -20,9 +20,9 @@ inline void write(string a) {
 }
 inline bool cmp(string a, string b) {
 	return a + b > b + a;
-	//return a>b²»¶Ô
-	//a=321£¬b=32£»a+b=32132£¬b+a=32321
-	//±ÜÃâ³öÏÖ32132>32321µÄÇé¿ö
+	//return a>bä¸å¯¹
+	//a=321ï¼Œb=32ï¼›a+b=32132ï¼Œb+a=32321
+	//é¿å…å‡ºçŽ°32132>32321çš„æƒ…å†µ
 }
 string a[25];
 int main()

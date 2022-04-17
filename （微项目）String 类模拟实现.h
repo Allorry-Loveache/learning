@@ -6,8 +6,8 @@
 using namespace std;
 namespace allorry {
 	class string {
-		//¹ÜÀí×Ö·û´®µÄÊı×é£¬¿ÉÒÔÔöÉ¾²é¸Ä
-		//½áÎ²´øÓĞ'\0'
+		//ç®¡ç†å­—ç¬¦ä¸²çš„æ•°ç»„ï¼Œå¯ä»¥å¢åˆ æŸ¥æ”¹
+		//ç»“å°¾å¸¦æœ‰'\0'
 	private:
 		char* _str;
 		size_t _size;
@@ -20,7 +20,7 @@ namespace allorry {
 		iterator end() const{
 			return _str + _size;
 		}
-		void swap(string& s) {  //ÀàÄÚswapÓëÄ£°åswapºÏ²¢
+		void swap(string& s) {  //ç±»å†…swapä¸æ¨¡æ¿swapåˆå¹¶
 			::swap(_str, s._str);
 			::swap(_size, s._size);
 			::swap(_capacity, s._capacity);
@@ -28,12 +28,12 @@ namespace allorry {
 		string(const char* str = "") {
 			_capacity = _size = strlen(str);
 			_str = new char[_capacity + 1]; 
-			//¿Õ¼ä¶à¿ªÒ»¸ö´æ'\0'£¬ºóĞøÒ²ÉÔÎ¢×¢ÒâĞ©
+			//ç©ºé—´å¤šå¼€ä¸€ä¸ªå­˜'\0'ï¼Œåç»­ä¹Ÿç¨å¾®æ³¨æ„äº›
 			strcpy(_str, str);
 		}
 		string(const string& s):_str(nullptr)
-		{    //²»°Ñ_strÖÃ¿Õ£¬Îö¹¹tËæ»úÖµµÄÊ±ºò»á³öÏÖÎÊÌâ
-			string t(s._str); //¹¹Ôìº¯Êı´òÔìÌæ´úÆ·
+		{    //ä¸æŠŠ_strç½®ç©ºï¼Œææ„téšæœºå€¼çš„æ—¶å€™ä¼šå‡ºç°é—®é¢˜
+			string t(s._str); //æ„é€ å‡½æ•°æ‰“é€ æ›¿ä»£å“
 			swap(t);
 		}
 		~string() {
@@ -42,17 +42,17 @@ namespace allorry {
 		size_t size() {
 			return _size;
 		}
-		void reserve(int n) { //¿ª±ÙĞÂ¿Õ¼ä
-			n = (n == 0) ? 1 : n;  //¿ª±Ù0¸ö¿Õ¼ä»á»µÊÂ
+		void reserve(int n) { //å¼€è¾Ÿæ–°ç©ºé—´
+			n = (n == 0) ? 1 : n;  //å¼€è¾Ÿ0ä¸ªç©ºé—´ä¼šåäº‹
 			if (n <= _capacity) return;
-			char* t = new char[n + 1]; //¶à¿ª£¬'\0'
+			char* t = new char[n + 1]; //å¤šå¼€ï¼Œ'\0'
 			strcpy(t, _str);
 			delete[] _str;
 			_str = t;
 			_capacity = n;
 		}
 		void resize(size_t n, char val='\0') {
-	    //¼ÙÉèsize=4£¬capacity=8£¬¶şÕß·ÖÁËÈıÖÖÇé¿ö£¬Ò»ÈıÖÖĞèÒªÌÖÂÛ
+	    //å‡è®¾size=4ï¼Œcapacity=8ï¼ŒäºŒè€…åˆ†äº†ä¸‰ç§æƒ…å†µï¼Œä¸€ä¸‰ç§éœ€è¦è®¨è®º
 			if (n < _size) {
 				_size = n;
 				_str[_size] = '\0';
@@ -74,7 +74,7 @@ namespace allorry {
 			_size++;
 		}
 		void insert(size_t pos, char ch) {
-			//¿Óµã£ºsize_t n=0, n-1 > 4e10
+			//å‘ç‚¹ï¼šsize_t n=0, n-1 > 4e10
 			assert(pos <= _size);
 			if (_size == _capacity)
 				reserve(2 * _capacity);
@@ -94,7 +94,7 @@ namespace allorry {
 			while (end >= _str + pos) {
 				*(end + len) = *(end); end--;
 			}
-			strncpy(_str + pos, str, len); //·ÀÖ¹strµÄ\0¸²¸ÇÓĞĞ§Êı¾İ
+			strncpy(_str + pos, str, len); //é˜²æ­¢strçš„\0è¦†ç›–æœ‰æ•ˆæ•°æ®
 			_size += len;
 		}
 		void append(const char* str) {
@@ -118,7 +118,7 @@ namespace allorry {
 		}
 		void erase(size_t pos, size_t len) {
 			assert(pos < _size);
-			if (len + pos >= _size) { //È«²¿É¾Íê
+			if (len + pos >= _size) { //å…¨éƒ¨åˆ å®Œ
 				_str[pos] = '/0';
 				_size -= len;
 			}
@@ -139,7 +139,7 @@ namespace allorry {
 			append(s._str);
 			return *this;
 		}
-		string& operator=(string s) { //sÊÇÁÙÊ±¹¹ÔìµÄ£¬ÓÃÍê¾ÍÎö¹¹
+		string& operator=(string s) { //sæ˜¯ä¸´æ—¶æ„é€ çš„ï¼Œç”¨å®Œå°±ææ„
 			swap(s);
 			return *this;
 		}
@@ -158,7 +158,7 @@ namespace allorry {
 		bool operator>=(const string& s) {
 			return *this == s || *this > s;
 		}
-		char& operator[](int i) const{ //·µ»ØÒıÓÃ
+		char& operator[](int i) const{ //è¿”å›å¼•ç”¨
 			assert(i < _size);
 			return _str[i];
 		}
@@ -183,7 +183,7 @@ namespace allorry {
 	istream& operator>>(istream& in, string& s) {
 		s.clear();
 		char ch;
-		//in >> ch;  //ºöÂÔ' 'µÈ¼ä¸ô·û£¬ µ¼ÖÂÒ»Ö±Ñ­»·
+		//in >> ch;  //å¿½ç•¥' 'ç­‰é—´éš”ç¬¦ï¼Œ å¯¼è‡´ä¸€ç›´å¾ªç¯
 		ch = in.get();
 		while (ch!=' ' && ch!= '\r' && ch!='\n') {
 			s += ch;

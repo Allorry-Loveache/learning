@@ -211,11 +211,3 @@ namespace allorry {
 		return in;
 	}
 }
-
-int main()
-{
-	allorry::string a("ssswoqu");
-	a.insert(4, "sss");
-	cout << a << endl;
-	cout << a.rfind("sss");
-}

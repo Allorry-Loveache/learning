@@ -58,7 +58,7 @@ public:
 
 class stu {
 	friend class sys;
-	int r, c; //Ô¤Ô¼µÄÐÐÓëÁÐ
+	int r, c; //é¢„çº¦çš„è¡Œä¸Žåˆ—
 public:
 	stu() {
 		r = c = 0;
@@ -73,7 +73,7 @@ public:
 	sys() :s(), m() {}
 	void find(int n) {
 		if (n >= index) {
-			printf("´íÎóÊäÈë\n");
+			printf("é”™è¯¯è¾“å…¥\n");
 		}
 		else m.show(s[n].r, s[n].c);
 	}
@@ -82,7 +82,7 @@ public:
 	}
 	void input(int r, int c) {
 		if (r > Row || c > Col || r < 0 || c < 0) {
-			printf("´íÎóÊäÈë\n");
+			printf("é”™è¯¯è¾“å…¥\n");
 			return;
 		}
 		if (m.room[r][c] == '0') {
@@ -92,17 +92,17 @@ public:
 			index++;
 		}
 		else if (m.room[r][c] == 'X') {
-			printf("´íÎóÊäÈë\n");
+			printf("é”™è¯¯è¾“å…¥\n");
 		}
 	}
 };
 int sys::index = 1;
 void menu() {
 	printf("*****************\n");
-	printf("    0. ÍË³ö      \n");
-	printf("    1. Ô¤Ô¼      \n");
-	printf("    2. ²é¿´Ô¤Ô¼  \n");
-	printf("    3. ²é¿´×ùÎ»  \n");
+	printf("    0. é€€å‡º      \n");
+	printf("    1. é¢„çº¦      \n");
+	printf("    2. æŸ¥çœ‹é¢„çº¦  \n");
+	printf("    3. æŸ¥çœ‹åº§ä½  \n");
 	printf("*****************\n");
 }
 int main()
@@ -115,14 +115,14 @@ int main()
 		if (n == 0) return 0;
 		if (n == 1) {
 			s.show();
-			printf("ÇëÊäÈëÄãÒªÔ¤Ô¼µÄÐÐÓëÁÐ\n");
+			printf("è¯·è¾“å…¥ä½ è¦é¢„çº¦çš„è¡Œä¸Žåˆ—\n");
 			int r, c;
 			cin >> r >> c;
 			system("cls");
 			s.input(r, c);
 		}
 		if (n == 2) {
-			printf("ÇëÊäÈëÄãÒª²éÕÒµÄÈËµÄ±àºÅ\n");
+			printf("è¯·è¾“å…¥ä½ è¦æŸ¥æ‰¾çš„äººçš„ç¼–å·\n");
 			int n;
 			cin >> n;
 			system("cls");

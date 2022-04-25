@@ -1,14 +1,14 @@
 /*
-	»ØºÏÖÆÕ½¶·ÓÎÏ·
-	ÓÂÕßÊôÐÔ Õ½¶·Á¦ ¾­ÑéÖµ Ç¹
-	Ç¹ÊôÐÔ Ãû×Ö É±ÉËÁ¦ µ¯¼ÐÈÝÁ¿ µ±Ç°ÔØµ¯Á¿
-	¹ÖÎïÊôÐÔ ÉúÃüÖµ ¹ÖÎïÖµ ¹¥»÷Á¦ ¹ÖÎïµôÂäµ¯¼Ð
-	Õ½¶·¹ý³Ì ÓÂÕßÄÜ¹»¶Ô¹ÖÎïÔì³ÉÉËº¦µÄÌõ¼þ Õ½¶·Á¦+¾­ÑéÖµ ´óÓÚ¹ÖÎïÖµ
-	Ã¿´ÎÓÂÕß¶Ô¹ÖÎï²úÉúÇ¹É±ÉËÁ¦µÄÉËº¦ Ã¿´Î¹¥»÷Ê¹ÓÃÒ»¿Å×Óµ¯ 
-	¹ÖÎïÃ¿»ØºÏ¿ÉÒÔ¶ÔÓÂÕßµÄÕ½¶·Á¦Ôì³É¹¥»÷Á¦µãÏÂ½µ
-	µ±ÓÂÕßµÄ²»×ãÒÔ¶Ô¹ÖÎïÔì³ÉÉËº¦Ê± ¾Í»á±»¹ÖÎïÍÌÊÉ ÓÎÏ·½áÊø
-	µ±ÓÂÕß»÷°Ü¹ÖÎïÊ± ÓÂÕßµÄÕ½¶·Á¦½«»áÌáÉý¹ÖÎïÖµ ²¢ÇÒ»ñµÃ¹ÖÎïÉíÉÏµÄµ¯¼Ð 
-	ÓÂÕß¾ßÓÐÉý¼¶ÄÜÁ¦ µ±Õ½¶·Á¦µ½´ïÒ»¶¨ãÐÖµ¾Í¿ÉÒÔÉý¼¶ ²¢ÇÒ²úÉú¾­ÑéÖµµÄ³É³¤ 
+	å›žåˆåˆ¶æˆ˜æ–—æ¸¸æˆ
+	å‹‡è€…å±žæ€§ æˆ˜æ–—åŠ› ç»éªŒå€¼ æžª
+	æžªå±žæ€§ åå­— æ€ä¼¤åŠ› å¼¹å¤¹å®¹é‡ å½“å‰è½½å¼¹é‡
+	æ€ªç‰©å±žæ€§ ç”Ÿå‘½å€¼ æ€ªç‰©å€¼ æ”»å‡»åŠ› æ€ªç‰©æŽ‰è½å¼¹å¤¹
+	æˆ˜æ–—è¿‡ç¨‹ å‹‡è€…èƒ½å¤Ÿå¯¹æ€ªç‰©é€ æˆä¼¤å®³çš„æ¡ä»¶ æˆ˜æ–—åŠ›+ç»éªŒå€¼ å¤§äºŽæ€ªç‰©å€¼
+	æ¯æ¬¡å‹‡è€…å¯¹æ€ªç‰©äº§ç”Ÿæžªæ€ä¼¤åŠ›çš„ä¼¤å®³ æ¯æ¬¡æ”»å‡»ä½¿ç”¨ä¸€é¢—å­å¼¹ 
+	æ€ªç‰©æ¯å›žåˆå¯ä»¥å¯¹å‹‡è€…çš„æˆ˜æ–—åŠ›é€ æˆæ”»å‡»åŠ›ç‚¹ä¸‹é™
+	å½“å‹‡è€…çš„ä¸è¶³ä»¥å¯¹æ€ªç‰©é€ æˆä¼¤å®³æ—¶ å°±ä¼šè¢«æ€ªç‰©åžå™¬ æ¸¸æˆç»“æŸ
+	å½“å‹‡è€…å‡»è´¥æ€ªç‰©æ—¶ å‹‡è€…çš„æˆ˜æ–—åŠ›å°†ä¼šæå‡æ€ªç‰©å€¼ å¹¶ä¸”èŽ·å¾—æ€ªç‰©èº«ä¸Šçš„å¼¹å¤¹ 
+	å‹‡è€…å…·æœ‰å‡çº§èƒ½åŠ› å½“æˆ˜æ–—åŠ›åˆ°è¾¾ä¸€å®šé˜ˆå€¼å°±å¯ä»¥å‡çº§ å¹¶ä¸”äº§ç”Ÿç»éªŒå€¼çš„æˆé•¿ 
 */
 #include <iostream>
 #include <cstring>
@@ -122,7 +122,7 @@ class Soldier{
 			while(force/1000>level) 
 			{
 				level++,level_up();
-				cout<<"ÓÂÕßÉý¼¶ µ±Ç°µÈ¼¶Îª"<<level<<endl;
+				cout<<"å‹‡è€…å‡çº§ å½“å‰ç­‰çº§ä¸º"<<level<<endl;
 				_sleep(300);
 				system("cls"); 
 			}
@@ -155,11 +155,11 @@ class Soldier{
 		}
 		void disp()
 		{
-			cout<<"Ä¿Ç°ÄúµÄÊôÐÔ£ºforce["<<force<<"]£¬experience["<<experience<<"]"<<endl;
+			cout<<"ç›®å‰æ‚¨çš„å±žæ€§ï¼šforce["<<force<<"]ï¼Œexperience["<<experience<<"]"<<endl;
 			_sleep(500);
-			cout<<"Ä¿Ç°ÄúÓµÓÐµÄµ¯¼ÐÊýÁ¿£º"<<this->bullet_num<<endl;
+			cout<<"ç›®å‰æ‚¨æ‹¥æœ‰çš„å¼¹å¤¹æ•°é‡ï¼š"<<this->bullet_num<<endl;
 			_sleep(500);
-			cout<<"Õ¹Ê¾ÄúµÄÎäÆ÷ÊôÐÔ"<<endl;
+			cout<<"å±•ç¤ºæ‚¨çš„æ­¦å™¨å±žæ€§"<<endl;
 			_sleep(500);
 			weapon.disp();
 		}
@@ -187,9 +187,9 @@ class monster{
 		}
 		void disp()
 		{
-			cout<<"¹ÖÎï["<<id<<"]µÄÉúÃüÖµÎª"<<hp<<"£¬¹¥»÷Á¦Îª"<<attack<<"£¬»÷°ÜËü»ñµÃµÄÕ½¶·Á¦Îª£º"<<force<<endl;
+			cout<<"æ€ªç‰©["<<id<<"]çš„ç”Ÿå‘½å€¼ä¸º"<<hp<<"ï¼Œæ”»å‡»åŠ›ä¸º"<<attack<<"ï¼Œå‡»è´¥å®ƒèŽ·å¾—çš„æˆ˜æ–—åŠ›ä¸ºï¼š"<<force<<endl;
 			_sleep(500);
-			cout<<"»÷°ÜÕâÖ»¹ÖÎïÄã¿ÉÒÔ»ñµÃ"<<bullet_num<<"µÄµ¯¼Ð²¹¸ø"<<endl;
+			cout<<"å‡»è´¥è¿™åªæ€ªç‰©ä½ å¯ä»¥èŽ·å¾—"<<bullet_num<<"çš„å¼¹å¤¹è¡¥ç»™"<<endl;
 			_sleep(500);
 		}
 		int get_attack()
@@ -212,15 +212,15 @@ class Game{
 	public:
 		void Select_Soldier(Soldier &s)
 		{
-			cout<<"Äã¿ÉÒÔÑ¡ÔñÈýÖÖÓÂÕß"<<endl;
-			cout<<"¼üÈë[1]£º¹¥»÷ÐÍÓÂÕß ÓµÓÐ½Ï¸ßµÄ³õÊ¼Õ½¶·Á¦ µ«ÊÇÉý¼¶Ôö¼ÓµÄ¾­ÑéÖµ±È½ÏµÍ"<<endl;
-			cout<<"¼üÈë[2]£º³É³¤ÐÍÓÂÕß Éý¼¶¿ÉÒÔ»ñµÃ¾Þ¶îµÄ¾­ÑéÖµ µ«ÊÇ³õÊ¼Õ½¶·Á¦½ÏµÍ"<<endl;
-			cout<<"¼üÈë[3]£º¾ùºâÐÍÓÂÕß Æ½Æ½ÎÞÆæµÄÓÂÕß"<<endl;
-			string name[]={"","¹¥»÷ÐÍÓÂÕß","³É³¤ÐÍÓÂÕß","¾ùºâÐÍÓÂÕß"};
+			cout<<"ä½ å¯ä»¥é€‰æ‹©ä¸‰ç§å‹‡è€…"<<endl;
+			cout<<"é”®å…¥[1]ï¼šæ”»å‡»åž‹å‹‡è€… æ‹¥æœ‰è¾ƒé«˜çš„åˆå§‹æˆ˜æ–—åŠ› ä½†æ˜¯å‡çº§å¢žåŠ çš„ç»éªŒå€¼æ¯”è¾ƒä½Ž"<<endl;
+			cout<<"é”®å…¥[2]ï¼šæˆé•¿åž‹å‹‡è€… å‡çº§å¯ä»¥èŽ·å¾—å·¨é¢çš„ç»éªŒå€¼ ä½†æ˜¯åˆå§‹æˆ˜æ–—åŠ›è¾ƒä½Ž"<<endl;
+			cout<<"é”®å…¥[3]ï¼šå‡è¡¡åž‹å‹‡è€… å¹³å¹³æ— å¥‡çš„å‹‡è€…"<<endl;
+			string name[]={"","æ”»å‡»åž‹å‹‡è€…","æˆé•¿åž‹å‹‡è€…","å‡è¡¡åž‹å‹‡è€…"};
 			int x;
 			cin>>x;
 			system("cls");
-			cout<<"ÄúÑ¡ÔñÁË"<<name[x]<<endl;
+			cout<<"æ‚¨é€‰æ‹©äº†"<<name[x]<<endl;
 			if(x==1) s.set_Soldier(1,2000,0,50,5,2);
 			if(x==2) s.set_Soldier(1,1000,0,400,5,1);
 			if(x==3) s.set_Soldier(1,1500,0,100,5,1);
@@ -229,12 +229,12 @@ class Game{
 		{
 			_sleep(1000);
 			system("cls"); 
-			cout<<"ÏÖÔÚÎªÄúµÄÓÂÕßÑ¡ÔñÒ»°ÑÇ¹"<<endl;
+			cout<<"çŽ°åœ¨ä¸ºæ‚¨çš„å‹‡è€…é€‰æ‹©ä¸€æŠŠæžª"<<endl;
 			Gun USP("USP",40,20,20);
 			Gun UZI("UZI",10,40,40);
-			cout<<"¼üÈë[1]£º»ñµÃÇ¹ÐµUSP"<<endl;
+			cout<<"é”®å…¥[1]ï¼šèŽ·å¾—æžªæ¢°USP"<<endl;
 			USP.disp(); 
-			cout<<"¼üÈë[2]£º»ñµÃÇ¹ÐµUZI"<<endl;
+			cout<<"é”®å…¥[2]ï¼šèŽ·å¾—æžªæ¢°UZI"<<endl;
 			UZI.disp();
 			int opt; 
 			cin>>opt;
@@ -245,19 +245,19 @@ class Game{
 		{
 			if(!s.check_bullet())
 			{
-				cout<<"ÓÂÕßÊ¹ÓÃÇ¹Ðµ¹¥»÷ µ«Ëû·¢ÏÖµ¯¼Ð¿ÕÁË£¡"<<endl;
+				cout<<"å‹‡è€…ä½¿ç”¨æžªæ¢°æ”»å‡» ä½†ä»–å‘çŽ°å¼¹å¤¹ç©ºäº†ï¼"<<endl;
 				return;
 			}
-			cout<<"ÓÂÕßÊ¹ÓÃÇ¹Ðµ["<<s.get_gun_name()<<"]¹¥»÷¹ÖÎï"<<endl;
+			cout<<"å‹‡è€…ä½¿ç”¨æžªæ¢°["<<s.get_gun_name()<<"]æ”»å‡»æ€ªç‰©"<<endl;
 			_sleep(500); 
 			int w=s.fire();
-			cout<<"ÓÂÕß¶Ô¹ÖÎïÔì³ÉÁË["<<w<<"]ÉËº¦"<<endl;
+			cout<<"å‹‡è€…å¯¹æ€ªç‰©é€ æˆäº†["<<w<<"]ä¼¤å®³"<<endl;
 			m.modify_hp(w);
 			int r=rand()%2;
 			if(r)
 			{
 				_sleep(500);
-				cout<<"Ð§¹û°ÎÈº£¡¶Ô¹ÖÎïÔì³ÉÁË¶îÍâ["<<int(0.8*w)<<"]ÉËº¦"<<endl; 
+				cout<<"æ•ˆæžœæ‹”ç¾¤ï¼å¯¹æ€ªç‰©é€ æˆäº†é¢å¤–["<<int(0.8*w)<<"]ä¼¤å®³"<<endl; 
 				m.modify_hp(0.8*w);
 			}
 		}
@@ -266,43 +266,43 @@ class Game{
 			int x=rand()%2;
 			if(x)
 			{
-				cout<<"ÓÂÕßÊ¹ÓÃÁËÌÓÅÜÕ½Êõ£¡"<<endl;
+				cout<<"å‹‡è€…ä½¿ç”¨äº†é€ƒè·‘æˆ˜æœ¯ï¼"<<endl;
 				_sleep(1000);
-				cout<<"ÌÓÍÑ³É¹¦£¡"<<endl;
+				cout<<"é€ƒè„±æˆåŠŸï¼"<<endl;
 				return 1;
 			}
 			else
 			{
-				cout<<"ÓÂÕßÊ¹ÓÃÁËÌÓÅÜÕ½Êõ£¡"<<endl;
+				cout<<"å‹‡è€…ä½¿ç”¨äº†é€ƒè·‘æˆ˜æœ¯ï¼"<<endl;
 				_sleep(1000);
-				cout<<"ÌÓÍÑÊ§°Ü£¡"<<endl;
+				cout<<"é€ƒè„±å¤±è´¥ï¼"<<endl;
 				return 1;
 			}
 		}
 		void monster_attack(Soldier &s,monster &m)
 		{
-			cout<<"¹ÖÎïÊ¹ÓÃÁË¹ÖÁ¦ÃÍ»÷"<<endl;
+			cout<<"æ€ªç‰©ä½¿ç”¨äº†æ€ªåŠ›çŒ›å‡»"<<endl;
 			_sleep(1000);
-			cout<<"¹ÖÎï¶ÔÓÂÕßÔì³ÉÁË["<<m.get_attack()<<"]ÉËº¦"<<endl;
+			cout<<"æ€ªç‰©å¯¹å‹‡è€…é€ æˆäº†["<<m.get_attack()<<"]ä¼¤å®³"<<endl;
 			s.change_force(m.get_attack());
 			_sleep(1000);
 			int r=rand()%2;
 			if(r)
 			{
 				s.change_force(0.8*m.get_attack());
-				cout<<"²úÉúÁ¬»÷£¡¹ÖÎïÔÙ´Î¶ÔÓÂÕßÔì³ÉÁË["<<0.8*m.get_attack()<<"]ÉËº¦"<<endl;
+				cout<<"äº§ç”Ÿè¿žå‡»ï¼æ€ªç‰©å†æ¬¡å¯¹å‹‡è€…é€ æˆäº†["<<0.8*m.get_attack()<<"]ä¼¤å®³"<<endl;
 				_sleep(1000);
 			}
 		}
 		void Soldier_load(Soldier &s)
 		{
-			if(s.load()) cout<<"ÉÏµ¯³É¹¦£¡"<<endl;
-			else cout<<"µ¯¼ÐÊýÁ¿²»×ã ÉÏµ¯Ê§°Ü£¡"<<endl;
+			if(s.load()) cout<<"ä¸Šå¼¹æˆåŠŸï¼"<<endl;
+			else cout<<"å¼¹å¤¹æ•°é‡ä¸è¶³ ä¸Šå¼¹å¤±è´¥ï¼"<<endl;
 			_sleep(1000);
 		}
 		void end_game()
 		{
-			cout<<"ÓÎÏ·½áÊø"<<endl; 
+			cout<<"æ¸¸æˆç»“æŸ"<<endl; 
 			exit(0);
 		}
 		int fight(Soldier &s,monster &m)
@@ -312,19 +312,19 @@ class Game{
 			    system("cls");
 				if(s.get_fpe()<=m.get_force())
 				{
-					cout<<"ÎÞ·¨»÷°Ü¹ÖÎï ±»¹ÖÎïÍÌÊÉ"<<endl;
+					cout<<"æ— æ³•å‡»è´¥æ€ªç‰© è¢«æ€ªç‰©åžå™¬"<<endl;
 					_sleep(2000);
 					return -1;
 				}
 				int opt;
-				cout<<"ÓÂÕßÊôÐÔÕ¹Ê¾"<<endl;
+				cout<<"å‹‡è€…å±žæ€§å±•ç¤º"<<endl;
 				s.disp();
-				cout<<"¹ÖÎïÊôÐÔÕ¹Ê¾"<<endl;
+				cout<<"æ€ªç‰©å±žæ€§å±•ç¤º"<<endl;
 				m.disp();
-				cout<<"ÏÖÔÚÊÇÄãµÄ»ØºÏ£¡"<<endl;
-				cout<<"¼üÈë[1]£º¶Ô¹ÖÎï½øÐÐÇ¹Ðµ¹¥»÷£¡"<<endl;
-				cout<<"¼üÈë[2]£º¶ÔÇ¹Ðµ½øÐÐÉÏµ¯£¡"<<endl;
-				cout<<"¼üÈë[3]£º½øÐÐÕ½Êõ³·ÍË£¡"<<endl;
+				cout<<"çŽ°åœ¨æ˜¯ä½ çš„å›žåˆï¼"<<endl;
+				cout<<"é”®å…¥[1]ï¼šå¯¹æ€ªç‰©è¿›è¡Œæžªæ¢°æ”»å‡»ï¼"<<endl;
+				cout<<"é”®å…¥[2]ï¼šå¯¹æžªæ¢°è¿›è¡Œä¸Šå¼¹ï¼"<<endl;
+				cout<<"é”®å…¥[3]ï¼šè¿›è¡Œæˆ˜æœ¯æ’¤é€€ï¼"<<endl;
 				cin>>opt;
 				system("cls");
 				if(opt==1) Soldier_attack(s,m);
@@ -336,7 +336,7 @@ class Game{
 				if(!m.get_hp()) 
 				{
 					s.add_force(m.get_force());
-					cout<<"»÷°Ü¹ÖÎï£¡»ñµÃ¹ÖÎïÐ¯´øµ¯¼Ð »ñµÃÕ½¶·Á¦Ôö³¤£¡"<<endl;
+					cout<<"å‡»è´¥æ€ªç‰©ï¼èŽ·å¾—æ€ªç‰©æºå¸¦å¼¹å¤¹ èŽ·å¾—æˆ˜æ–—åŠ›å¢žé•¿ï¼"<<endl;
 					_sleep(2000);
 					return 1;
 				}
@@ -356,7 +356,7 @@ class Game{
 			{
 				srand(time(0));
 				system("cls");
-				cout<<"Ñ¡ÔñÒ»¸ö¹ÖÎï¿ªÊ¼Õ½¶·"<<endl;
+				cout<<"é€‰æ‹©ä¸€ä¸ªæ€ªç‰©å¼€å§‹æˆ˜æ–—"<<endl;
 				monster_rand();
 				for(int i=0;i<mons.size();i++)
 					mons[i].disp();
@@ -377,8 +377,8 @@ class Game{
 		void start()
 		{
 			for(int i=1;i<=5;i++) monster_rand();
-			cout<<"»¶Ó­À´µ½ÓÂÕßµÄÃ°ÏÕÂÃÍ¾"<<endl;
-			cout<<"µã»÷ÈÎÒâ¼ü¿ªÊ¼ÓÎÏ·"<<endl;
+			cout<<"æ¬¢è¿Žæ¥åˆ°å‹‡è€…çš„å†’é™©æ—…é€”"<<endl;
+			cout<<"ç‚¹å‡»ä»»æ„é”®å¼€å§‹æ¸¸æˆ"<<endl;
 			getchar();
 			system("cls"); 
 		}

@@ -37,17 +37,17 @@ namespace allorry {
 		void reserve(size_t n) {
 			if (n > capacity()) {
 				T* t = new T[n];
-				size_t sz = size(); //�ȱ�����ԭ�ռ�Ĵ�С
-				if (_start) { //ԭ�ռ��ж����Ļ��Ϳ���ȥ��ע��˴��ݻٿռ�
+				size_t sz = size(); //先保留好原空间的大小
+				if (_start) { //原空间有东西的话就拷过去，注意此处摧毁空间
 					memcpy(t, _start, sz*sizeof(T));
 					delete[] _start;
 				}
-				//��������memcpyֻ������ǳ����������ͨ��
+				//以上运用memcpy只适用于浅拷贝，以下通用
 				/*for (size_t i = 0; i < sz; i++) {
 					t[i] = _start[i];
 				}*/
 				_start = t;
-				//_finish = _start + size(); ����д��������������ʧЧ
+				//_finish = _start + size(); 错误写法，迭代器可能失效
 				_finish = _start + sz;
 				_end = _start + n;
 			}
@@ -60,7 +60,7 @@ namespace allorry {
 			*_finish = x;
 			_finish++;
 		}
-		void resize(size_t n, T val=T()) {  //�µ����� �� �ֵ
+		void resize(size_t n, T val=T()) {  //新的容量 与 填补值
 			if (n < size()) {
 				_finish = _start + n;
 			}
@@ -83,7 +83,7 @@ namespace allorry {
 				size_t newcapa = capacity() == 0 ? 4 : 2 * capacity();
 				reserve(newcapa);
 			}
-			pos = _start + len;//��ֹpos��Ϊ����ʧЧ
+			pos = _start + len;//防止pos因为扩容失效
 			iterator tail = _finish - 1;
 			while (tail >= pos) {
 				*(tail + 1) = *tail;
@@ -91,9 +91,9 @@ namespace allorry {
 			}
 			*pos = x;
 			_finish++;
-		/*�����ʣ������pos���βΣ���ԭ�ȵ�ʵ���Ѿ���Ϊ����ʧЧ�ˣ�
-		Ϊ�˱���������⣬�����ô����*/
-			//��Ϊ��iterator& pos,  ĩβ���ӣ�pos++;
+		/*面试问：这里的pos是形参，而原先的实参已经因为扩容失效了，
+		为了避免这个问题，你该怎么做？*/
+			//改为：iterator& pos,  末尾添加：pos++;
 		}
 		iterator erase(iterator pos) {
 			iterator cur = pos;

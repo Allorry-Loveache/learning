@@ -1,4 +1,4 @@
-#pragma once //ÎªÁË±ÜÃâÍ¬Ò»¸öÍ·ÎÄ¼ş±»°üº¬£¨include£©¶à´Î
+#pragma once //ä¸ºäº†é¿å…åŒä¸€ä¸ªå¤´æ–‡ä»¶è¢«åŒ…å«ï¼ˆincludeï¼‰å¤šæ¬¡
 
 #include<cassert>
 #include<iostream>
@@ -54,7 +54,7 @@ namespace allorry {
 			return _node != x._node;
 		}
 
-		Ptr operator->() {  // ->    ·µ»ØÀàĞÍ£º T*  or  const T*
+		Ptr operator->() {  // ->    è¿”å›ç±»å‹ï¼š T*  or  const T*
 			return &_node->_val;
 		}
 	};
@@ -66,7 +66,7 @@ namespace allorry {
 	public:
 		typedef _list_iterator<T, T&, T*> iterator;
 		typedef _list_iterator<T, const T&, const T*> const_iterator;
-		//¸ù¾İ´«ÈëÊı¾İÀàĞÍµÄ²»Í¬£¬À´È·¶¨ÓÃÄÄ¸öiterator
+		//æ ¹æ®ä¼ å…¥æ•°æ®ç±»å‹çš„ä¸åŒï¼Œæ¥ç¡®å®šç”¨å“ªä¸ªiterator
 
 		iterator begin() {
 			return iterator(_head->_next);
@@ -100,14 +100,14 @@ namespace allorry {
 		}
 
 		void push_back(const T& x) {
-			//ÀÏ·½·¨ÊÇÏ²ÎÅÀÖ¼ûµÄnewnode²åÈë
+			//è€æ–¹æ³•æ˜¯å–œé—»ä¹è§çš„newnodeæ’å…¥
 			insert(end(), x);
 		}
 
 		void insert(iterator pos, const T& x) {
 			//left  newnode  pos(right) 
 			
-			node* right = pos._node;  //±ØĞëÊÇ. ²»ÊÇ->, _node²ÅÊÇÖ¸Õë
+			node* right = pos._node;  //å¿…é¡»æ˜¯. ä¸æ˜¯->, _nodeæ‰æ˜¯æŒ‡é’ˆ
 			node* left = right->_prev;
 			node* newnode = new node(x);
 
@@ -131,7 +131,7 @@ namespace allorry {
 		}
 
 		void erase(iterator pos) {
-			assert(pos != end()); //Í·½áµã£ºÄª°¤ÀÏ×Ó
+			assert(pos != end()); //å¤´ç»“ç‚¹ï¼šè«æŒ¨è€å­
 			//left  pos(t)  right
 			node* t = pos._node;
 			node* left = t->_prev;
@@ -144,7 +144,7 @@ namespace allorry {
 
 		void pop_back() {
 			//erase(iterator(_head->_prev));
-			erase(--end());  //¶¨Î»µ½½áÎ²µÄÖ¸Õë´«Èëerase
+			erase(--end());  //å®šä½åˆ°ç»“å°¾çš„æŒ‡é’ˆä¼ å…¥erase
 		}
 
 		void push_front(const T& x) {
@@ -164,9 +164,9 @@ namespace allorry {
 			std::cout << std::endl;
 		}
 
-		list<T>& operator=(const list<T>& it)//¸³ÖµÔËËã·ûÖØÔØÓĞ×Ô¼ºµÄÍ·½áµã
+		list<T>& operator=(const list<T>& it)//èµ‹å€¼è¿ç®—ç¬¦é‡è½½æœ‰è‡ªå·±çš„å¤´ç»“ç‚¹
 		{
-			if (this != &it)//²»ÓÃ×Ô¼º¸ø×Ô¼º¸³Öµ
+			if (this != &it)//ä¸ç”¨è‡ªå·±ç»™è‡ªå·±èµ‹å€¼
 			{
 				clear();
 				for (auto& i : it)
@@ -176,7 +176,7 @@ namespace allorry {
 			}
 			return *this;
 		}
-		//ĞÂĞ´·¨
+		//æ–°å†™æ³•
 		list<T>& operator=(list<T>& it)
 		{
 			swap(_head, it._head);

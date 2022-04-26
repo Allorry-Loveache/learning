@@ -1,95 +1,11 @@
-//#include <bits/stdc++.h>
-//using namespace std;
-//class employee {
-//private:
-//	string _name, _department;
-//	int _income, id;
-//	static int nums;
-//	static double rate;
-//public:
-//	employee(string name, string department, int income) {
-//		_name = name;
-//		_department = department;
-//		_income = income;
-//		id = nums++;
-//	}
-//	static int getNumber() {
-//		return nums;
-//	}
-//	void print() {
-//		cout << "The employee's uid is " << id << ",name is " << _name
-//			<< ",department is " << _department << ",income is " << _income << ".\n";
-//	}
-//	void getTax() {
-//		cout << "this one's tax is:" << rate * _income << endl;
-//	}
-//	bool operator<(const employee& x) {
-//		return _income < x._income;
-//	}
-//};
-//int employee::nums = 0;
-//double employee::rate = 0;
-//int main()
-//{
-//	vector<employee> v;
-//	int n;
-//	cout << "ÇëÊäÈë³ÉÔ±ÊıÄ¿" << endl;
-//	cin >> n;
-//	cout << "ÇëÊäÈëÃû×Ö ²¿ÃÅ ¹¤×Ê" << endl;
-//	string name, department; int income;
-//	for (int i = 0; i < n; i++) {
-//		cin >> name >> department >> income;
-//		v.push_back(employee(name, department, income));
-//	}
-//	sort(v.begin(), v.end());
-//	for (int i = 0; i < n; i++) {
-//		v[i].print();
-//	}
-//}
+1.   æŠŠæ–‡ä»¶é‡Œçš„å†…å®¹è½¬æ¢æˆå°å†™ï¼Œè¾“å‡º
+3.   æŠŠæ–‡ä»¶é‡Œçš„æ•°å­—ç±»å‹æ±‚å’Œï¼Œå¹¶ä¸”è¾“å…¥æ–‡ä»¶æœ«å°¾
+2.   åç§»3ä¸ªä½æ•°åŠ å¯†è´¦å·å’Œå¯†ç 
+4.   æŠŠæœ‰â€œforï¼šçš„è¡Œè¾“å‡º
 
 
 
-
-
-
-
-//#include<bits/stdc++.h>
-//using namespace std;
-//class Vec {
-//    int* a;
-//    int count;
-//public:
-//    Vec(int* arr=nullptr, int n=0) {
-//        swap(a, arr);
-//    }
-//    int operator*(int n) {
-//
-//    }
-//};
-//int main() {
-//    int n;
-//    cin >> n;
-//    int* arr1 = new int[n];
-//    int* arr2 = new int[n];
-//    for (int i = 0; i < n; ++i)
-//        cin >> arr1[i];
-//    for (int i = 0; i < n; ++i)
-//        cin >> arr2[i];
-//    Vec v1(arr1, n);
-//    Vec v2(arr2, n);
-//    Vec v3 = 3 * v1 + 2 * v2;
-//    v3.print();
-//    return 0;
-//}
-
-
-
-
-
-ÎÄ¼şÂ·¾¶¶¼ºÍ.cppÎÄ¼şËùÔÚÎ»ÖÃÏàÍ¬£¬¾­¼ì²é£¬½á¹ûÊÇ¶ÔµÄ
-
-
-//µÚÒ»Ìâ
+//ç¬¬ä¸€é¢˜
 //#define _CRT_SECURE_NO_WARNINGS
 //#include<bits/stdc++.h>
 //using namespace std;
@@ -112,7 +28,7 @@
 //}
 
 
-//µÚÈıÌâ
+//ç¬¬ä¸‰é¢˜
 //#define _CRT_SECURE_NO_WARNINGS
 //#include<bits/stdc++.h>
 //using namespace std;
@@ -144,9 +60,9 @@
 
 
 
-//µÚ¶şÌâ
-//±¾ÌâÒ»¸öÎÄ¼şÀï·Å±¾À´µÄÃÜÂë
-//ÎÒ°Ñ¼ÓÃÜºóµÄÎÄ¼ş·Åµ½ÁËÁíÒ»¸öÎÄ¼şÀï
+//ç¬¬äºŒé¢˜
+//æœ¬é¢˜ä¸€ä¸ªæ–‡ä»¶é‡Œæ”¾æœ¬æ¥çš„å¯†ç 
+//æˆ‘æŠŠåŠ å¯†åçš„æ–‡ä»¶æ”¾åˆ°äº†å¦ä¸€ä¸ªæ–‡ä»¶é‡Œ
 #define _CRT_SECURE_NO_WARNINGS
 #include<bits/stdc++.h>
 using namespace std;

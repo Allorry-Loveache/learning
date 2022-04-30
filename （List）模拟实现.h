@@ -54,6 +54,7 @@ namespace allorry {
 			return _node != x._node;
 		}
 
+		// 放在末尾讲解
 		Ptr operator->() {  // ->    返回类型： T*  or  const T*
 			return &_node->_val;
 		}
@@ -217,3 +218,15 @@ namespace allorry {
 
 }
 
+class Date {
+public:
+	int x = 1, y = 2, z = 3;
+
+};
+
+void test() {
+	allorry::list<Date> a;
+	allorry::list<Date>::iterator t = a.begin();
+	std::cout << (*t).y << std::endl;
+	std::cout << t->x << std::endl;
+}

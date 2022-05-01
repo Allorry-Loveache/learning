@@ -215,6 +215,22 @@ namespace allorry {
 		i.push_back(30);
 		l.print();
 	}
+	
+	
+	void test1()
+	{
+		list<std::string> l2;
+		l2.push_back("buhao");
+		l2.push_back("haoye");
+		l2.push_back("haoye");
+		l2.push_back("haoye");
+		l2.push_back("buhao");
+		l2.print();
+
+		l2.erase(l2.begin());
+		l2.pop_back();
+		l2.print();
+	}
 
 }
 

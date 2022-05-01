@@ -55,7 +55,7 @@ namespace allorry {
 		}
 
 		// 放在末尾讲解
-		Ptr operator->() {  // ->    返回类型： T*  or  const T*
+		Ptr operator->() {  // ->    返回类型： T*  or  const T*				
 			return &_node->_val;
 		}
 	};
@@ -178,7 +178,7 @@ namespace allorry {
 			return *this;
 		}
 		//新写法
-		list<T>& operator=(list<T>& it)
+		list<T>& operator=(list<T> it)
 		{
 			swap(_head, it._head);
 			return *this;
@@ -229,4 +229,5 @@ void test() {
 	allorry::list<Date>::iterator t = a.begin();
 	std::cout << (*t).y << std::endl;
 	std::cout << t->x << std::endl;
+	//按理说，t->(->x)   第一个(t->) 调用重载->，重载返回变量x的地址，(t->)再去访问这个地址。
 }

@@ -71,7 +71,7 @@ namespace allorry {
 			if (len + _size > _capacity) reserve(len + _size);
 
 			char* tail = _str + _size;
-			while (tail != _str + pos) {
+			while (tail >= _str + pos) {
 				*(tail + len) = *tail;
 				tail--;
 			}

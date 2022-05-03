@@ -33,7 +33,7 @@ int L1Distance(Point p1, Point p2) {
 }
 
 
-/* ÇëÔÚÕâÀïÌîĞ´´ğ°¸ */
+/* Ã‡Ã«Ã”ÃšÃ•Ã¢Ã€Ã¯ÃŒÃ®ÃÂ´Â´Ã°Â°Â¸ */
 int main()
 {
     ArrayofPoints ArrPoints1(2);

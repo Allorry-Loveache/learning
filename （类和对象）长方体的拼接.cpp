@@ -1,3 +1,5 @@
+//给你俩长方体，看看有没有能够拼起来的两个面，组成一份新长方体，求体积表面积
+
 #include<bits/stdc++.h>
 using namespace std;
 class haoye {

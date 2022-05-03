@@ -59,7 +59,7 @@ public:
 				a[i][j] = b[j][i];
 		row = r1, col = c1;
 	}
-	int& operator() (int r, int c) {   //ĞŞ¸Ä/ÌáÈ¡ÔªËØ£¬±ğÓÃÓÑÔªº¯Êı
+	int& operator() (int r, int c) {   //ä¿®æ”¹/æå–å…ƒç´ ï¼Œåˆ«ç”¨å‹å…ƒå‡½æ•°
 		return a[r][c];
 	}
 	Matrix& operator=(Matrix& t) {

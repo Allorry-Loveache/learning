@@ -33,11 +33,13 @@ int L1Distance(Point p1, Point p2) {
 }
 
 
-/* ÇëÔÚÕâÀïÌîÐ´´ð°¸ */
+/* 请在这里填写答案 */
 int main()
 {
     ArrayofPoints ArrPoints1(2);
     ArrayofPoints ArrPoints2(ArrPoints1);
+    //很难理解，根据调试，是先用完element 返回引用，再让引用去做move
+    //这个过程不是倒着来的，是顺序的
     ArrPoints1.element(0).move(5, 10);
     ArrPoints1.element(1).move(15, 20);
     cout << "The distance is" << endl;

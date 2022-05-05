@@ -34,7 +34,7 @@ public:
 	}
 
 	friend istream& operator>>(istream& in, Matrix& it) {
-		printf("ÇëÊäÈë%dĞĞ%dÁĞ\n", it.row, it.col);
+		printf("è¯·è¾“å…¥%dè¡Œ%dåˆ—\n", it.row, it.col);
 		for (int i = 0; i < it.row; i++)
 			for (int j = 0; j < it.col; j++)
 				in >> it.a[i][j];
@@ -62,7 +62,7 @@ public:
 		::swap(a, b);
 		int t = row; row = col; col = t;
 	}
-	int& operator() (int r, int c) {   //ĞŞ¸Ä/ÌáÈ¡ÔªËØ£¬±ğÓÃÓÑÔªº¯Êı
+	int& operator() (int r, int c) {   //ä¿®æ”¹/æå–å…ƒç´ ï¼Œåˆ«ç”¨å‹å…ƒå‡½æ•°
 		return a[r][c];
 	}
 	Matrix& operator=(const Matrix& t) {
@@ -72,7 +72,7 @@ public:
 	}
 	Matrix operator+(Matrix& t) {
 		if (t.row != row || t.col != col) {
-			cout << "²»Æ¥Åä£¬ÎŞ·¨Ïà¼Ó" << endl;
+			cout << "ä¸åŒ¹é…ï¼Œæ— æ³•ç›¸åŠ " << endl;
 			exit(-1);
 		}
 		Matrix tt(*this);
@@ -83,7 +83,7 @@ public:
 	}
 	Matrix operator*(Matrix& t) {
 		if (col != t.row) {
-			cout << "²»Æ¥Åä£¬ÎŞ·¨Ïà³Ë" << endl;
+			cout << "ä¸åŒ¹é…ï¼Œæ— æ³•ç›¸ä¹˜" << endl;
 			exit(-1);
 		}
 		Matrix ans(row, t.col);

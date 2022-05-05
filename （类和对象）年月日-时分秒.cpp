@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 class Date {
-	friend class DT;    //¿ÉÒÔ²»ÓÃÓÑÔª£¬¶àÐ´¼¸¸öÖØÔØ
+	friend class DT;    //å¯ä»¥ä¸ç”¨å‹å…ƒï¼Œå¤šå†™å‡ ä¸ªé‡è½½
 	friend istream& operator>>(istream& in, DT& x);
 	int _year;
 	int _day;
@@ -84,13 +84,13 @@ int main()
 	DT dt1(2020, 11, 31, 12, 50, 34);
 	DT dt2(2020, 11, 31, 12, 50, 12);
 	if (dt1 < dt2)
-		cout << "µÚÒ»¸öÈÕÆÚÊ±¼äÐ¡" << endl;
+		cout << "ç¬¬ä¸€ä¸ªæ—¥æœŸæ—¶é—´å°" << endl;
 	else
-		cout << "µÚÒ»¸öÈÕÆÚÊ±¼ä²»±ÈµÚ¶þ¸öÐ¡" << endl;
+		cout << "ç¬¬ä¸€ä¸ªæ—¥æœŸæ—¶é—´ä¸æ¯”ç¬¬äºŒä¸ªå°" << endl;
 	Date d = Date(dt1);
 	Time t = Time(dt1);
 	cout << dt1 << endl;
 	cout << d << " ," << t << endl;
-	int kk = d + t; //ÈËÀàÃÔ»óÐÐÎª
+	int kk = d + t; //äººç±»è¿·æƒ‘è¡Œä¸º
 	return 0;
 }

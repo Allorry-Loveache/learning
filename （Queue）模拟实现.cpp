@@ -2,8 +2,8 @@
 using namespace std;
 #include<deque>
 
-//库函数stack的底层结构为deque
-//模板参数: T--数据类型    Container--底层数据结构
+//搴撳嚱鏁皊tack鐨勫簳灞傜粨鏋勪负deque
+//妯℃澘鍙傛暟: T--鏁版嵁绫诲瀷    Container--搴曞眰鏁版嵁缁撴瀯
 template<class T, class Container = deque<T>>
 class stack
 {

@@ -1,5 +1,5 @@
 #define _CRT_SECURE_NO_WARNINGS
-#undef UNICODE   //ÓÃÀ´Ó¦¸¶loadimageµÄÒ»Ğ©´íÎó
+#undef UNICODE   //ç”¨æ¥åº”ä»˜loadimageçš„ä¸€äº›é”™è¯¯
 #undef _UNICODE
 #include<stdio.h>
 #include<graphics.h>
@@ -10,12 +10,12 @@
 
 #define Row 10
 #define Col 10
-#define Count 15 //ÂñÀ×ÊıÄ¿
-#define SIZE 40   //Í¼Ïñ³¤¶È
+#define Count 15 //åŸ‹é›·æ•°ç›®
+#define SIZE 40   //å›¾åƒé•¿åº¦
 int map[Row][Col];
 IMAGE img[12];
-int flag = 0;  //ÅĞ¶ÏÊäÓ®
-int count = 0;   //ÅĞ¶ÏÒÀ¾İ
+int flag = 0;  //åˆ¤æ–­è¾“èµ¢
+int count = 0;   //åˆ¤æ–­ä¾æ®
 
 void show() {
 	for (int i = 0; i < Row; i++) {
@@ -27,7 +27,7 @@ void show() {
 void gameinit() {
 	srand(time(0));
 	int c = 0;
-	//ÂñÀ×
+	//åŸ‹é›·
 	for (int i = 0; i < Count;) {
 		int x = rand() % Row;
 		int y = rand() % Col;
@@ -36,7 +36,7 @@ void gameinit() {
 		}
 		if (c == Count) break;
 	}
-	//´¦ÀíÀ×ÖÜÎ§µÄÊı×Ö£¬ÈÃËûÃÇ¶¼¼ÓÉÏ1
+	//å¤„ç†é›·å‘¨å›´çš„æ•°å­—ï¼Œè®©ä»–ä»¬éƒ½åŠ ä¸Š1
 	for (int i = 0; i < Row; i++)
 		for (int j = 0; j < Col; j++)
 			if (map[i][j] == -1)
@@ -44,13 +44,13 @@ void gameinit() {
 					for (int l = j - 1; l < j + 2; l++)
 						if (k >= 0 && k < Row && l >= 0 && l < Col && map[k][l] != -1)
 							map[k][l]++;
-	//¼ÓÔØÍ¼Æ¬
-	for (int i = 0; i < 12; i++) {  //¼ÓÔØ12ÕÅÍ¼Æ¬
+	//åŠ è½½å›¾ç‰‡
+	for (int i = 0; i < 12; i++) {  //åŠ è½½12å¼ å›¾ç‰‡
 		char filename[100] = "";
 		sprintf_s(filename, "./image/%d.jpg", i);
 		loadimage(img + i, filename, SIZE, SIZE);
 	}
-	//Î¢ĞÍ¼ÓÃÜ
+	//å¾®å‹åŠ å¯†
 	for (int i = 0; i < Row; i++)
 		for (int j = 0; j < Col; j++)
 			map[i][j] += 20;
@@ -59,15 +59,15 @@ void gameinit() {
 void gameDraw() {
 	for (int i = 0; i < Row; i++) {
 		for (int j = 0; j < Col; j++) {
-			int x = j * SIZE;    //xÖá¶ÔÓ¦jÁĞ£¬yÖá¶ÔÓ¦iĞĞ£¬×ª»»Îª¼ÓÔØÍ¼Æ¬ĞèÒªµÄ×ø±ê
+			int x = j * SIZE;    //xè½´å¯¹åº”jåˆ—ï¼Œyè½´å¯¹åº”iè¡Œï¼Œè½¬æ¢ä¸ºåŠ è½½å›¾ç‰‡éœ€è¦çš„åæ ‡
 			int y = i * SIZE;
 			if (map[i][j] >= 0 && map[i][j] <= 8)
-				putimage(x, y, img + map[i][j]);//map[i][j]ºÜ·½±ãµÄ¶ÔÓ¦ÎÒÃÇÍ¼Æ¬µÄĞòºÅ
+				putimage(x, y, img + map[i][j]);//map[i][j]å¾ˆæ–¹ä¾¿çš„å¯¹åº”æˆ‘ä»¬å›¾ç‰‡çš„åºå·
 			else if (map[i][j] == -1)
-				putimage(x, y, img + 9);  //¶ÔÓ¦µØÀ×µÄÍ¼Æ¬
-			else if (map[i][j] >= 19 && map[i][j] <= 28) //¼ÓÃÜºó£¬ÕÚÕÖÍ¼
+				putimage(x, y, img + 9);  //å¯¹åº”åœ°é›·çš„å›¾ç‰‡
+			else if (map[i][j] >= 19 && map[i][j] <= 28) //åŠ å¯†åï¼Œé®ç½©å›¾
 				putimage(x, y, img + 10);
-			else if (map[i][j] >= 39)   //ÅäºÏÓÒ¼ü±ê¼Ç
+			else if (map[i][j] >= 39)   //é…åˆå³é”®æ ‡è®°
 				putimage(x, y, img + 11);
 		}
 	}
@@ -85,9 +85,9 @@ void blank(int row, int col) {
 }
 
 void loser() {
-	if (count == 0) MessageBox(NULL, "ÂäµØ³ÉºĞ£¡", "", MB_OK);
-	else if (flag == 0)  MessageBox(NULL, "ºÃËÀ£¬¿ªÏãéÄ£¡", "", MB_OK);
-	else  MessageBox(NULL, "ÎÒ³¬£¬ÌÓ±ø£¡", "", MB_OK);
+	if (count == 0) MessageBox(NULL, "è½åœ°æˆç›’ï¼", "", MB_OK);
+	else if (flag == 0)  MessageBox(NULL, "å¥½æ­»ï¼Œå¼€é¦™æ§Ÿï¼", "", MB_OK);
+	else  MessageBox(NULL, "æˆ‘è¶…ï¼Œé€ƒå…µï¼", "", MB_OK);
 	for (int i = 0; i < Row; i++)
 		for (int j = 0; j < Col; j++)
 			if (map[i][j] >= 19 && map[i][j] <= 28)
@@ -97,11 +97,11 @@ void loser() {
 }
 
 void mouse() {
-	//ÏÈ»ñÈ¡Êó±êµÄÏûÏ¢£¬ÎÒÃÇÄ¿Ç°×îĞèÒªÏà¶Ôx,y×ø±ê
+	//å…ˆè·å–é¼ æ ‡çš„æ¶ˆæ¯ï¼Œæˆ‘ä»¬ç›®å‰æœ€éœ€è¦ç›¸å¯¹x,yåæ ‡
 	MOUSEMSG msg = GetMouseMsg();
 	int row = msg.y / SIZE;
 	int col = msg.x / SIZE;
-	//Èç¹û×ó¼üµã»÷ÁË¸ñ×Ó£¬¾Í´ò¿ª,-=20
+	//å¦‚æœå·¦é”®ç‚¹å‡»äº†æ ¼å­ï¼Œå°±æ‰“å¼€,-=20
 	if (msg.uMsg == WM_LBUTTONDOWN) {
 		if (map[row][col] >= 19) {
 			map[row][col] -= 20;
@@ -121,9 +121,9 @@ void mouse() {
 			}
 		}
 	}
-	//ÓÒ¼ü½øĞĞ±ê¼Ç,+=20
+	//å³é”®è¿›è¡Œæ ‡è®°,+=20
 	else if (msg.uMsg == WM_RBUTTONDOWN) {
-		//ÅÅ³ıÒÑ¾­±»±ê¼ÇµÄ ºÍ ×ó¼üÒÑ¾­µã¿ªÁËµÄ
+		//æ’é™¤å·²ç»è¢«æ ‡è®°çš„ å’Œ å·¦é”®å·²ç»ç‚¹å¼€äº†çš„
 		if (map[row][col] >= 19 && map[row][col] <= 28)
 			map[row][col] += 20;
 	}
@@ -134,11 +134,11 @@ int main()
 	HWND hwnd = GetForegroundWindow(); 
 	ShowWindow(hwnd, SW_HIDE); 
 
-	//ÉèÖÃ¿ØÖÆÌ¨
+	//è®¾ç½®æ§åˆ¶å°
 	initgraph(SIZE * Row, SIZE * Col, EW_SHOWCONSOLE);
 	gameinit();
 	show();
-	MessageBox(NULL, "Îª×æ¹ú¡°Ï×Éí¡±µÄÊ±¿Ìµ½ÁË£¬È¥°ÉÉÙÄê£¡", "", MB_OK);
+	MessageBox(NULL, "ä¸ºç¥–å›½â€œçŒ®èº«â€çš„æ—¶åˆ»åˆ°äº†ï¼Œå»å§å°‘å¹´ï¼", "", MB_OK);
 	while (1) {
 		gameDraw();
 		mouse();

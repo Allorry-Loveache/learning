@@ -131,11 +131,8 @@ void mouse() {
 
 int main()
 {
-	HWND hwnd = GetForegroundWindow(); 
-	ShowWindow(hwnd, SW_HIDE); 
-
 	//设置控制台
-	initgraph(SIZE * Row, SIZE * Col, EW_SHOWCONSOLE);
+	initgraph(SIZE * Row, SIZE * Col);
 	gameinit();
 	show();
 	MessageBox(NULL, "为祖国“献身”的时刻到了，去吧少年！", "", MB_OK);

@@ -7,11 +7,11 @@
 #include<mmsystem.h>
 #pragma comment(lib, "winmm.lib")
 #define speed 10
-int index3;   //²Ù×÷Ä£Ê½
-int score;   //µÃ·Ö
-int die = 3; //ÉúÃü
-char s[5];   //×Ö·û´®ĞÎÊ½µÃ·Ö
-char d[5];   //×Ö·û´®ĞÎÊ½ÉúÃü
+int index3;   //æ“ä½œæ¨¡å¼
+int score;   //å¾—åˆ†
+int die = 3; //ç”Ÿå‘½
+char s[5];   //å­—ç¬¦ä¸²å½¢å¼å¾—åˆ†
+char d[5];   //å­—ç¬¦ä¸²å½¢å¼ç”Ÿå‘½
 
 
 enum {
@@ -27,23 +27,23 @@ IMAGE Him[2];
 IMAGE Her[2];
 IMAGE Me[2];
 
-struct bull {  //×Óµ¯ÀàĞÍ
+struct bull {  //å­å¼¹ç±»å‹
 	int x, y;
 	int flag;
-}myb[100], herbull[3][10];  //ÎÒµÄ×Óµ¯£¬3¸ö´ó¹ÖµÄ×Óµ¯
+}myb[100], herbull[3][10];  //æˆ‘çš„å­å¼¹ï¼Œ3ä¸ªå¤§æ€ªçš„å­å¼¹
 
-struct plane { //·ÉĞĞÎïÀàĞÍ
+struct plane { //é£è¡Œç‰©ç±»å‹
 	int x, y;
-	int flag;  //ÊÇ·ñ´æ»î
-}my, him[6], her[3];  //ÎÒ£¬Ò»¶ÔĞ¡¹Ö´ó¹Ö
+	int flag;  //æ˜¯å¦å­˜æ´»
+}my, him[6], her[3];  //æˆ‘ï¼Œä¸€å¯¹å°æ€ªå¤§æ€ª
 
 void menu() {
 	setbkcolor(WHITE);
 	settextcolor(BLUE);
 	cleardevice();
-	settextstyle(40, 20, "ËÎÌå");
-	outtextxy(200, 270, "wsadÒÆ¶¯£¬¿Õ¸ñÉä»÷");
-	outtextxy(200, 470, "Êó±êÒÆ¶¯£¬×ó¼üÉä»÷");
+	settextstyle(40, 20, "å®‹ä½“");
+	outtextxy(200, 270, "wsadç§»åŠ¨ï¼Œç©ºæ ¼å°„å‡»");
+	outtextxy(200, 470, "é¼ æ ‡ç§»åŠ¨ï¼Œå·¦é”®å°„å‡»");
 	while (1) {
 		MOUSEMSG msg = GetMouseMsg();
 		int x = msg.x, y = msg.y;
@@ -92,7 +92,7 @@ void initGame() {
 	my.x = 240, my.y = 700;
 }
 
-void mymove2() {  //Êó±ê·½Ê½
+void mymove2() {  //é¼ æ ‡æ–¹å¼
 	MOUSEMSG msg = GetMouseMsg();
 	my.x = msg.x, my.y = msg.y;
 	static int i = 0;
@@ -107,7 +107,7 @@ void mymove2() {  //Êó±ê·½Ê½
 }
 
 void mymove() {  
-	if (GetAsyncKeyState(VK_UP) || GetAsyncKeyState('W')) //±ØĞë´óĞ´×ÖÄ¸
+	if (GetAsyncKeyState(VK_UP) || GetAsyncKeyState('W')) //å¿…é¡»å¤§å†™å­—æ¯
 		if (my.y - speed >= 0)  my.y -= speed;
 	if (GetAsyncKeyState(VK_DOWN) || GetAsyncKeyState('S')) 
 		if (my.y + speed <= 750)  my.y += speed;
@@ -118,7 +118,7 @@ void mymove() {
 }
 
 void initbull() {
-	//×Óµ¯°´Ò»¶¨Ê±¼ä¼ä¸ô³õÊ¼»¯
+	//å­å¼¹æŒ‰ä¸€å®šæ—¶é—´é—´éš”åˆå§‹åŒ–
 	static DWORD t1 = 0, t2 = 0, i = 0;
 	if (GetAsyncKeyState(VK_SPACE) && t1 - t2 > 100) {
 		if (myb[i].flag == 0) {
@@ -140,7 +140,7 @@ void bullmove() {
 	}
 }
 
-void himmove() {  //¼æÈİ³õÊ¼»¯
+void himmove() {  //å…¼å®¹åˆå§‹åŒ–
 	for (int i = 0; i < 6; i++) {
 		if (him[i].flag == 0) {
 			him[i].x = rand() % 550;
@@ -151,7 +151,7 @@ void himmove() {  //¼æÈİ³õÊ¼»¯
 	}
 }
 
-void hermove() {  //¼æÈİ³õÊ¼»¯
+void hermove() {  //å…¼å®¹åˆå§‹åŒ–
 	for (int i = 0; i < 3; i++) {
 		if (her[i].flag == 0) {
 			her[i].x = rand() % 500;
@@ -192,32 +192,32 @@ void bullmove_her() {
 	}
 }
 
-void himdie() {   //¼æÈİ×Óµ¯ÏûÊ§
+void himdie() {   //å…¼å®¹å­å¼¹æ¶ˆå¤±
 	for (int i = 0; i < 100; i++) {
 		for (int j = 0; j < 6; j++) {
 			if (myb[i].x >= him[j].x && myb[i].x <= him[j].x + 52 &&
 				myb[i].y <= him[j].y)
-			{   //ËÀÁË¾ÍÈ«²¿³õÊ¼»¯£¬Éè×ø±ê£¬²»È»³öbug
+			{   //æ­»äº†å°±å…¨éƒ¨åˆå§‹åŒ–ï¼Œè®¾åæ ‡ï¼Œä¸ç„¶å‡ºbug
 				him[j].flag = 0, him[j].x = 1200, him[j].y = 1200;
 				myb[i].flag = 0, myb[i].x = 1200, myb[i].y = 1200;
 				score += 10;
 			}
 
-			if (him[j].y >= 860) {  //µĞÈË³ö½ç
+			if (him[j].y >= 860) {  //æ•Œäººå‡ºç•Œ
 				him[j].flag = 0, him[j].x = 1200, him[j].y = 1200;
 			}
 		}
-		if (myb[i].y <= 0)  //×Óµ¯³ö½ç
+		if (myb[i].y <= 0)  //å­å¼¹å‡ºç•Œ
 			myb[i].flag = 0, myb[i].x = 1200, myb[i].y = 1200;
 	}
 }
 
-void herdie() {   //¼æÈİ×Óµ¯ÏûÊ§
+void herdie() {   //å…¼å®¹å­å¼¹æ¶ˆå¤±
 	for (int i = 0; i < 100; i++) {
 		for (int j = 0; j < 3; j++) {
 			if (myb[i].x >= her[j].x && myb[i].x <= her[j].x + 104 &&
 				myb[i].y <= her[j].y + 100)
-			{   //ËÀÁË¾ÍÈ«²¿³õÊ¼»¯£¬Éè×ø±ê£¬²»È»³öbug
+			{   //æ­»äº†å°±å…¨éƒ¨åˆå§‹åŒ–ï¼Œè®¾åæ ‡ï¼Œä¸ç„¶å‡ºbug
 				her[j].flag--;
 				myb[i].flag=0, myb[i].x = 1300, myb[i].y = 1300;
 				if (her[j].flag == 0) {
@@ -226,29 +226,29 @@ void herdie() {   //¼æÈİ×Óµ¯ÏûÊ§
 				}
 			}
 
-			if (her[j].y >= 860) {  //µĞÈË³ö½ç
+			if (her[j].y >= 860) {  //æ•Œäººå‡ºç•Œ
 				her[j].flag = 0, her[j].x = 1300, her[j].y = 1300;
 			}
 		}
-		if (myb[i].y <= 0) {   //×Óµ¯³ö½ç
+		if (myb[i].y <= 0) {   //å­å¼¹å‡ºç•Œ
 			myb[i].flag = 0, myb[i].x = 1300, myb[i].y = 1300;
 		}
 	}
 }
 
 
-void medie() {  //¼æÈİµĞ·½×Óµ¯ÏûÊ§
-	for (int i = 0; i < 6; i++) {  //±»Ğ¡¹Ö´ò
+void medie() {  //å…¼å®¹æ•Œæ–¹å­å¼¹æ¶ˆå¤±
+	for (int i = 0; i < 6; i++) {  //è¢«å°æ€ªæ‰“
 		if (him[i].y - 20 >= my.y && him[i].y <= my.y + 80 &&
 			him[i].x + 30 >= my.x && him[i].x <= my.x + 30)
 			die = 0;
 	}
-	for (int i = 0; i < 3; i++) {  //±»´ó¹Ö´ò
+	for (int i = 0; i < 3; i++) {  //è¢«å¤§æ€ªæ‰“
 		if (her[i].y + 100 >= my.y && her[i].y <= my.y + 80 &&
 			her[i].x + 50 >= my.x && her[i].x <= my.x + 30)
 			die = 0;
 	}
-	for (int i = 0; i < 3; i++) {  //±»×Óµ¯´ò
+	for (int i = 0; i < 3; i++) {  //è¢«å­å¼¹æ‰“
 		for (int j = 0; j < 10; j++) {
 			if (herbull[i][j].y >= my.y && herbull[i][j].y <= my.y + 50 &&
 				herbull[i][j].x >= my.x && herbull[i][j].x <= my.x + 40)
@@ -258,7 +258,7 @@ void medie() {  //¼æÈİµĞ·½×Óµ¯ÏûÊ§
 			}
 		}
 	}
-	for (int i = 0; i < 3; i++) {  //µĞ·½×Óµ¯³ö½ç
+	for (int i = 0; i < 3; i++) {  //æ•Œæ–¹å­å¼¹å‡ºç•Œ
 		for (int j = 0; j < 10; j++) {
 			if (herbull[i][j].x <= 0 || herbull[i][j].x >= 580 ||
 				herbull[i][j].y <= 0 || herbull[i][j].y >= 860)
@@ -269,37 +269,37 @@ void medie() {  //¼æÈİµĞ·½×Óµ¯ÏûÊ§
 	}
 	if (die==0) {
 		settextcolor(RED);
-		setbkmode(TRANSPARENT);  //È¥µôÎÄ×Ö±³¾°
-		settextstyle(200, 200, "¿¬Ìå");
-		outtextxy(100, 350, "¼Ä");
+		setbkmode(TRANSPARENT);  //å»æ‰æ–‡å­—èƒŒæ™¯
+		settextstyle(200, 200, "æ¥·ä½“");
+		outtextxy(100, 350, "å¯„");
 		FlushBatchDraw();
 		getchar();
 	}
 }
 
 void drawALL() {
-	//»­³ö×Ô¼º
+	//ç”»å‡ºè‡ªå·±
 	putimage(my.x, my.y, Me, NOTSRCERASE);
 	putimage(my.x, my.y, Me + 1, SRCINVERT);
-	for (int i = 0; i < 6; i++) {  //»­³öĞ¡µĞÈË
+	for (int i = 0; i < 6; i++) {  //ç”»å‡ºå°æ•Œäºº
 		if (him[i].flag) {
 			putimage(him[i].x, him[i].y, Him, NOTSRCERASE);
 			putimage(him[i].x, him[i].y, Him + 1, SRCINVERT);
 		}
 	}
-	for (int i = 0; i < 3; i++) {  //»­³ö´óµĞÈË
+	for (int i = 0; i < 3; i++) {  //ç”»å‡ºå¤§æ•Œäºº
 		if (her[i].flag) {
 			putimage(her[i].x, her[i].y, Her, NOTSRCERASE);
 			putimage(her[i].x, her[i].y, Her + 1, SRCINVERT);
 		}
 	}
-	for (int i = 0; i < 100; i++) {//»­³öÎÒµÄ×Óµ¯
+	for (int i = 0; i < 100; i++) {//ç”»å‡ºæˆ‘çš„å­å¼¹
 		if (myb[i].flag) {
 			putimage(myb[i].x, myb[i].y, Bullet, NOTSRCERASE);
 			putimage(myb[i].x, myb[i].y, Bullet + 1, SRCINVERT);
 		}
 	}
-	for (int i = 0; i < 3; i++) {//»­³öµĞÈË×Óµ¯
+	for (int i = 0; i < 3; i++) {//ç”»å‡ºæ•Œäººå­å¼¹
 		for (int j = 0; j < 10; j++) {
 			if (herbull[i][j].flag && her[i].flag) {
 				putimage(herbull[i][j].x, herbull[i][j].y, Bullet, NOTSRCERASE);
@@ -310,10 +310,10 @@ void drawALL() {
 	settextcolor(GREEN);
 	sprintf(s, "%d", score);
 	sprintf(d, "%d", die);
-	settextstyle(20, 10, "¿¬Ìå");
-	outtextxy(650, 10, "µÃ·Ö:");
+	settextstyle(20, 10, "æ¥·ä½“");
+	outtextxy(650, 10, "å¾—åˆ†:");
 	outtextxy(650, 35, s);
-	outtextxy(650, 60, "ÉúÃü:");
+	outtextxy(650, 60, "ç”Ÿå‘½:");
 	outtextxy(650, 85, d);
 }
 
@@ -321,11 +321,11 @@ void drawGame() {
 	while (1) {
 		BeginBatchDraw();
 		putimage(0, 0, &bk);
-		//ËùÓĞÎïÌåµÄÒÆ¶¯
+		//æ‰€æœ‰ç‰©ä½“çš„ç§»åŠ¨
 		if (index3 == 1) mymove();
 		else mymove2();
 		himmove(); bullmove(); hermove(); bullmove_her();
-		herdie(); himdie(); medie();//¿´¿´ÓĞÃ»ÓĞËÀÁËµÄ
+		herdie(); himdie(); medie();//çœ‹çœ‹æœ‰æ²¡æœ‰æ­»äº†çš„
 		drawALL();
 		EndBatchDraw();
 		Sleep(10);
@@ -353,50 +353,50 @@ void game333()
 
 
 void BGM222() {
-	//alias ±ğÃû 
-	mciSendString("open  ./Ñ÷-»ÆÁä.mp3   alias bgm", NULL, 0, NULL);
+	//alias åˆ«å 
+	mciSendString("open  ./ç—’-é»„é¾„.mp3   alias bgm", NULL, 0, NULL);
 	mciSendString("play  bgm    repeat", NULL, 0, NULL);
 }
-#define MAX 500    //ÉßµÄ×î´ó³¤¶È
-#define LENGTH 10   //·½ĞÎÉßÍ·µÄ³¤¶È
-int index;   //Ä£Ê½Ñ¡Ôñ
-int grade;  //Íæ¼Ò·ÖÊı
-char Grade[5];  //±ØĞëÓÃ×Ö·û´®¸ñÊ½ÏÔÊ¾Íæ¼Ò·ÖÊı
+#define MAX 500    //è›‡çš„æœ€å¤§é•¿åº¦
+#define LENGTH 10   //æ–¹å½¢è›‡å¤´çš„é•¿åº¦
+int index;   //æ¨¡å¼é€‰æ‹©
+int grade;  //ç©å®¶åˆ†æ•°
+char Grade[5];  //å¿…é¡»ç”¨å­—ç¬¦ä¸²æ ¼å¼æ˜¾ç¤ºç©å®¶åˆ†æ•°
 
-//enum Orient {   //±íÊ¾ÉßµÄ·½Ïò
+//enum Orient {   //è¡¨ç¤ºè›‡çš„æ–¹å‘
 //	UP = 72, DOWN = 80, LEFT = 75, RIGHT = 77
 //};
 
 struct Snake {
-	int size;    //³¤¶È
-	int orient;     //·½Ïò
-	POINT coor[MAX];//×ø±ê
+	int size;    //é•¿åº¦
+	int orient;     //æ–¹å‘
+	POINT coor[MAX];//åæ ‡
 }snake;
 
 struct Food {
-	int flag;   //Ê³ÎïÊÇ·ñ´æÔÚ
+	int flag;   //é£Ÿç‰©æ˜¯å¦å­˜åœ¨
 	int x, y;
 }food;
 
 void initGame222() {
-	//ÉèÖÃ´°¿Ú±³¾°£¬ Ìî³äÑÕÉ«£¬ ±ß¿òÑÕÉ«£¬ ÎÄ±¾ÑÕÉ«
+	//è®¾ç½®çª—å£èƒŒæ™¯ï¼Œ å¡«å……é¢œè‰²ï¼Œ è¾¹æ¡†é¢œè‰²ï¼Œ æ–‡æœ¬é¢œè‰²
 	initgraph(650, 480);
 	BGM222();
 	setbkcolor(RGB(255, 255, 255));
 	setfillcolor(GREEN);
 	setlinecolor(BLACK);
 	settextcolor(BLUE);
-	setbkmode(TRANSPARENT);  //È¥µôÎÄ×Ö±³¾°
+	setbkmode(TRANSPARENT);  //å»æ‰æ–‡å­—èƒŒæ™¯
 	cleardevice();
-	//ÉèÖÃ²¢»­³ö³õÊ¼Ñ¡Ôñ½çÃæ
+	//è®¾ç½®å¹¶ç”»å‡ºåˆå§‹é€‰æ‹©ç•Œé¢
 	fillrectangle(100, 170, 200, 270);
 	fillrectangle(300, 170, 400, 270);
 	fillrectangle(500, 170, 600, 270);
 	fillrectangle(250, 300, 480, 400);
-	outtextxy(120, 210, "ÓÎÍæÒ»ÏÂ");
-	outtextxy(320, 210, "·´×ªÄ£Ê½");
-	outtextxy(520, 210, "»¨ÀïºúÉÚ");
-	outtextxy(330, 350, "ÖÎÁÆµÍÑªÑ¹");
+	outtextxy(120, 210, "æ¸¸ç©ä¸€ä¸‹");
+	outtextxy(320, 210, "åè½¬æ¨¡å¼");
+	outtextxy(520, 210, "èŠ±é‡Œèƒ¡å“¨");
+	outtextxy(330, 350, "æ²»ç–—ä½è¡€å‹");
 	while (1) {
 		MOUSEMSG msg = GetMouseMsg();
 		int x = msg.x, y = msg.y;
@@ -443,16 +443,16 @@ void initGame222() {
 		}
 	}
 
-	//ÉèÖÃÉß
+	//è®¾ç½®è›‡
 	snake.size = 3;
 	snake.orient = RIGHT;
 	snake.coor[0].x = 40, snake.coor[0].y = 40;
 }
 
 void drawGame222() {
-	BeginBatchDraw();   //ÉèÁ¢»º³å
-	//»æÖÆÉß
-	if (index == 35) {    //»¨ÀïºúÉÚÉ«
+	BeginBatchDraw();   //è®¾ç«‹ç¼“å†²
+	//ç»˜åˆ¶è›‡
+	if (index == 35) {    //èŠ±é‡Œèƒ¡å“¨è‰²
 		int x = rand() % 255, y = rand() % 255, z = rand() % 255;
 		setfillcolor(RGB(x, y, z));
 	}
@@ -460,9 +460,9 @@ void drawGame222() {
 		fillrectangle(snake.coor[i].x, snake.coor[i].y,
 			snake.coor[i].x + LENGTH, snake.coor[i].y + LENGTH);
 	}
-	//Êä³ö·ÖÊı
+	//è¾“å‡ºåˆ†æ•°
 	sprintf(Grade, "%d", grade);
-	outtextxy(550, 0, "ÄãµÄ·ÖÊı:");
+	outtextxy(550, 0, "ä½ çš„åˆ†æ•°:");
 	outtextxy(580, 20, Grade);
 
 	EndBatchDraw();
@@ -480,7 +480,7 @@ void move() {
 	else if (snake.orient == RIGHT) snake.coor[0].x += LENGTH;
 }
 
-void keyControl1() {    //¼üÅÌ²Ù×÷
+void keyControl1() {    //é”®ç›˜æ“ä½œ
 	switch (_getch()) {
 	case UP:
 		if (snake.orient != DOWN)
@@ -517,11 +517,11 @@ void keyControl2() {
 }
 
 void initFood() {
-	food.x = rand() % 65 * 10;  //±£Ö¤×ø±êÔÚ640ÒÔÄÚ£¬²¢ÇÒÈ«Îª10µÄ±¶Êı
+	food.x = rand() % 65 * 10;  //ä¿è¯åæ ‡åœ¨640ä»¥å†…ï¼Œå¹¶ä¸”å…¨ä¸º10çš„å€æ•°
 	food.y = rand() % 48 * 10;
 	if (food.x == 0 || food.x == 640) food.x = 100;
 	if (food.y == 0 || food.y == 470) food.y = 100;
-	food.flag = 1;   //Ê³Îï´æÔÚ
+	food.flag = 1;   //é£Ÿç‰©å­˜åœ¨
 }
 
 void drawFood1() {
@@ -552,15 +552,15 @@ void eat2() {
 int die222() {
 	if (snake.coor[0].x == 0 || snake.coor[0].y == 0 ||
 		snake.coor[0].x == 640 || snake.coor[0].y == 470) {
-		outtextxy(200, 200, "Äã×²ÉÏÁË¡°»ÊµÛµÄĞÂÇ½¡±");
-		MessageBox(NULL, "¾ÍÕâ?", "", MB_OK);
+		outtextxy(200, 200, "ä½ æ’ä¸Šäº†â€œçš‡å¸çš„æ–°å¢™â€");
+		MessageBox(NULL, "å°±è¿™?", "", MB_OK);
 		system("pause");
 		return 1;
 	}
 	for (int i = 1; i < snake.size; i++) {
 		if (snake.coor[0].x == snake.coor[i].x && snake.coor[0].y == snake.coor[i].y) {
-			outtextxy(200, 200, "ÎÒ ³Ô ÎÒ ×Ô ¼º");
-			MessageBox(NULL, "ÄÔ ×Ó ÓĞ ÎÊ Ìâ", "", MB_OK);
+			outtextxy(200, 200, "æˆ‘ åƒ æˆ‘ è‡ª å·±");
+			MessageBox(NULL, "è„‘ å­ æœ‰ é—® é¢˜", "", MB_OK);
 			system("pause");
 			return 1;
 		}
@@ -574,22 +574,22 @@ void game222()
 	srand((unsigned int)time(NULL));
 	initGame222();
 	while (1) {
-		cleardevice();   //¸²¸Ç
-		if (food.flag == 0)  initFood(), food.flag = 1; //Ê³ÎïÃ»ÁË¾Í³õÊ¼»¯
-		if (index == 20) drawFood2();      //»­³öÊ³Îï
+		cleardevice();   //è¦†ç›–
+		if (food.flag == 0)  initFood(), food.flag = 1; //é£Ÿç‰©æ²¡äº†å°±åˆå§‹åŒ–
+		if (index == 20) drawFood2();      //ç”»å‡ºé£Ÿç‰©
 		else drawFood1();
-		drawGame222();      //»­³öÉßºÍ»­Ãæ
-		move();          //ÉßÒÆ¶¯
-		if (die222()) break;     //ÅĞ¶ÏÓÎÏ·½áÊø
-		if (index == 20) eat2();           //¶¯Íê£¬¿´¿´³Ô²»³Ô
+		drawGame222();      //ç”»å‡ºè›‡å’Œç”»é¢
+		move();          //è›‡ç§»åŠ¨
+		if (die222()) break;     //åˆ¤æ–­æ¸¸æˆç»“æŸ
+		if (index == 20) eat2();           //åŠ¨å®Œï¼Œçœ‹çœ‹åƒä¸åƒ
 		else eat1();
-		if (_kbhit()) {  //Èç¹û¼üÅÌÓĞÊäÈë£¬×¼±¸¸Ä·½Ïò
+		if (_kbhit()) {  //å¦‚æœé”®ç›˜æœ‰è¾“å…¥ï¼Œå‡†å¤‡æ”¹æ–¹å‘
 			if (index == 30 || index == 35 || index == 20) keyControl1();
 			else keyControl2();
 		}
-		else if (index != 20)Sleep(index);    //µÈ´ıÊ±¼ä
+		else if (index != 20)Sleep(index);    //ç­‰å¾…æ—¶é—´
 
-		if (index == 20) Sleep(13);  //Ç¿ÖÆÑÓ³Ù
+		if (index == 20) Sleep(13);  //å¼ºåˆ¶å»¶è¿Ÿ
 	}
 	getchar();
 	closegraph();
@@ -604,12 +604,12 @@ void game222()
 
 #define Row 10
 #define Col 10
-#define Count 15 //ÂñÀ×ÊıÄ¿
-#define SIZE 40   //Í¼Ïñ³¤¶È
+#define Count 15 //åŸ‹é›·æ•°ç›®
+#define SIZE 40   //å›¾åƒé•¿åº¦
 int map[Row][Col];
 IMAGE img[12];
-int flag = 0;  //ÅĞ¶ÏÊäÓ®
-int count = 0;   //ÅĞ¶ÏÒÀ¾İ
+int flag = 0;  //åˆ¤æ–­è¾“èµ¢
+int count = 0;   //åˆ¤æ–­ä¾æ®
 
 void show() {
 	for (int i = 0; i < Row; i++) {
@@ -621,7 +621,7 @@ void show() {
 void gameinit() {
 	srand(time(0));
 	int c = 0;
-	//ÂñÀ×
+	//åŸ‹é›·
 	for (int i = 0; i < Count;) {
 		int x = rand() % Row;
 		int y = rand() % Col;
@@ -630,7 +630,7 @@ void gameinit() {
 		}
 		if (c == Count) break;
 	}
-	//´¦ÀíÀ×ÖÜÎ§µÄÊı×Ö£¬ÈÃËûÃÇ¶¼¼ÓÉÏ1
+	//å¤„ç†é›·å‘¨å›´çš„æ•°å­—ï¼Œè®©ä»–ä»¬éƒ½åŠ ä¸Š1
 	for (int i = 0; i < Row; i++)
 		for (int j = 0; j < Col; j++)
 			if (map[i][j] == -1)
@@ -638,13 +638,13 @@ void gameinit() {
 					for (int l = j - 1; l < j + 2; l++)
 						if (k >= 0 && k < Row && l >= 0 && l < Col && map[k][l] != -1)
 							map[k][l]++;
-	//¼ÓÔØÍ¼Æ¬
-	for (int i = 0; i < 12; i++) {  //¼ÓÔØ12ÕÅÍ¼Æ¬
+	//åŠ è½½å›¾ç‰‡
+	for (int i = 0; i < 12; i++) {  //åŠ è½½12å¼ å›¾ç‰‡
 		char filename[100] = "";
 		sprintf_s(filename, "./image/%d.jpg", i);
 		loadimage(img + i, filename, SIZE, SIZE);
 	}
-	//Î¢ĞÍ¼ÓÃÜ
+	//å¾®å‹åŠ å¯†
 	for (int i = 0; i < Row; i++)
 		for (int j = 0; j < Col; j++)
 			map[i][j] += 20;
@@ -653,15 +653,15 @@ void gameinit() {
 void gameDraw() {
 	for (int i = 0; i < Row; i++) {
 		for (int j = 0; j < Col; j++) {
-			int x = j * SIZE;    //xÖá¶ÔÓ¦jÁĞ£¬yÖá¶ÔÓ¦iĞĞ£¬×ª»»Îª¼ÓÔØÍ¼Æ¬ĞèÒªµÄ×ø±ê
+			int x = j * SIZE;    //xè½´å¯¹åº”jåˆ—ï¼Œyè½´å¯¹åº”iè¡Œï¼Œè½¬æ¢ä¸ºåŠ è½½å›¾ç‰‡éœ€è¦çš„åæ ‡
 			int y = i * SIZE;
 			if (map[i][j] >= 0 && map[i][j] <= 8)
-				putimage(x, y, img + map[i][j]);//map[i][j]ºÜ·½±ãµÄ¶ÔÓ¦ÎÒÃÇÍ¼Æ¬µÄĞòºÅ
+				putimage(x, y, img + map[i][j]);//map[i][j]å¾ˆæ–¹ä¾¿çš„å¯¹åº”æˆ‘ä»¬å›¾ç‰‡çš„åºå·
 			else if (map[i][j] == -1)
-				putimage(x, y, img + 9);  //¶ÔÓ¦µØÀ×µÄÍ¼Æ¬
-			else if (map[i][j] >= 19 && map[i][j] <= 28) //¼ÓÃÜºó£¬ÕÚÕÖÍ¼
+				putimage(x, y, img + 9);  //å¯¹åº”åœ°é›·çš„å›¾ç‰‡
+			else if (map[i][j] >= 19 && map[i][j] <= 28) //åŠ å¯†åï¼Œé®ç½©å›¾
 				putimage(x, y, img + 10);
-			else if (map[i][j] >= 39)   //ÅäºÏÓÒ¼ü±ê¼Ç
+			else if (map[i][j] >= 39)   //é…åˆå³é”®æ ‡è®°
 				putimage(x, y, img + 11);
 		}
 	}
@@ -679,9 +679,9 @@ void blank(int row, int col) {
 }
 
 void loser() {
-	if (count == 0) MessageBox(NULL, "ÂäµØ³ÉºĞ£¡", "", MB_OK);
-	else if (flag == 0)  MessageBox(NULL, "ºÃËÀ£¬¿ªÏãéÄ£¡", "", MB_OK);
-	else  MessageBox(NULL, "ÎÒ³¬£¬ÌÓ±ø£¡", "", MB_OK);
+	if (count == 0) MessageBox(NULL, "è½åœ°æˆç›’ï¼", "", MB_OK);
+	else if (flag == 0)  MessageBox(NULL, "å¥½æ­»ï¼Œå¼€é¦™æ§Ÿï¼", "", MB_OK);
+	else  MessageBox(NULL, "æˆ‘è¶…ï¼Œé€ƒå…µï¼", "", MB_OK);
 	for (int i = 0; i < Row; i++)
 		for (int j = 0; j < Col; j++)
 			if (map[i][j] >= 19 && map[i][j] <= 28)
@@ -691,11 +691,11 @@ void loser() {
 }
 
 void mouse() {
-	//ÏÈ»ñÈ¡Êó±êµÄÏûÏ¢£¬ÎÒÃÇÄ¿Ç°×îĞèÒªÏà¶Ôx,y×ø±ê
+	//å…ˆè·å–é¼ æ ‡çš„æ¶ˆæ¯ï¼Œæˆ‘ä»¬ç›®å‰æœ€éœ€è¦ç›¸å¯¹x,yåæ ‡
 	MOUSEMSG msg = GetMouseMsg();
 	int row = msg.y / SIZE;
 	int col = msg.x / SIZE;
-	//Èç¹û×ó¼üµã»÷ÁË¸ñ×Ó£¬¾Í´ò¿ª,-=20
+	//å¦‚æœå·¦é”®ç‚¹å‡»äº†æ ¼å­ï¼Œå°±æ‰“å¼€,-=20
 	if (msg.uMsg == WM_LBUTTONDOWN) {
 		if (map[row][col] >= 19) {
 			map[row][col] -= 20;
@@ -715,9 +715,9 @@ void mouse() {
 			}
 		}
 	}
-	//ÓÒ¼ü½øĞĞ±ê¼Ç,+=20
+	//å³é”®è¿›è¡Œæ ‡è®°,+=20
 	else if (msg.uMsg == WM_RBUTTONDOWN) {
-		//ÅÅ³ıÒÑ¾­±»±ê¼ÇµÄ ºÍ ×ó¼üÒÑ¾­µã¿ªÁËµÄ
+		//æ’é™¤å·²ç»è¢«æ ‡è®°çš„ å’Œ å·¦é”®å·²ç»ç‚¹å¼€äº†çš„
 		if (map[row][col] >= 19 && map[row][col] <= 28)
 			map[row][col] += 20;
 	}
@@ -725,11 +725,11 @@ void mouse() {
 
 void game111()
 {
-	//ÉèÖÃ¿ØÖÆÌ¨
+	//è®¾ç½®æ§åˆ¶å°
 	initgraph(SIZE * Row, SIZE * Col);
 	gameinit();
 	show();
-	MessageBox(NULL, "Îª×æ¹ú¡°Ï×Éí¡±µÄÊ±¿Ìµ½ÁË£¬È¥°ÉÉÙÄê£¡", "", MB_OK);
+	MessageBox(NULL, "ä¸ºç¥–å›½â€œçŒ®èº«â€çš„æ—¶åˆ»åˆ°äº†ï¼Œå»å§å°‘å¹´ï¼", "", MB_OK);
 	while (1) {
 		gameDraw();
 		mouse();
@@ -752,16 +752,16 @@ int main()
 	setfillcolor(YELLOW);
 	setlinecolor(BLACK);
 	settextcolor(BLUE);
-	setbkmode(TRANSPARENT);  //È¥µôÎÄ×Ö±³¾°
+	setbkmode(TRANSPARENT);  //å»æ‰æ–‡å­—èƒŒæ™¯
 	cleardevice();
 	fillrectangle(100, 100, 250, 200);
 	fillrectangle(350, 100, 500, 200);
 	fillrectangle(100, 300, 250, 400);
 	fillrectangle(350, 300, 500, 400);
-	outtextxy(150, 140, "²ÈÀ×");
-	outtextxy(400, 140, "Ì°³ÔÉß");
-	outtextxy(150, 340, "»Ò»ú´óÕ½");
-	outtextxy(400, 340, "²»ÏëÍæÀ²");
+	outtextxy(150, 140, "è¸©é›·");
+	outtextxy(400, 140, "è´ªåƒè›‡");
+	outtextxy(150, 340, "ç°æœºå¤§æˆ˜");
+	outtextxy(400, 340, "ä¸æƒ³ç©å•¦");
 	while (1) {
 		MOUSEMSG msg = GetMouseMsg();
 		int x = msg.x, y = msg.y;

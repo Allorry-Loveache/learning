@@ -17,9 +17,9 @@ namespace Allorry {
 		}
 	};
 
-	//��sort������ͬ��less��greater�ĺ��������仯
-	//Ĭ����һ����ѣ�Ĭ�ϴ�����ȼ��� less��ȡֵ�����ǽ��򣨴�ѱ���������
-	//�����С�ѣ�С�����ȼ��� greater��ȡֵ����������
+	//和sort函数不同，less和greater的含义有所变化
+	//默认是一个大堆，默认大的优先级高 less，取值出来是降序（大堆本来排升序）
+	//若变成小堆，小的优先级高 greater，取值出来是升序
 	template<class T, class Container=vector<T>, class Compare=greater<T> >
 	class priority_queue {
 	private:

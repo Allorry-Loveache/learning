@@ -61,10 +61,6 @@ void area(shape& x) {
 
 int main()
 {
-	/*rectangle r(2, 4);
-	triangle t(3, 4, 5);
-	circle c(5, 1, 1);
-	area(r), area(t), area(c);*/
 
 	//vector<shape*> vs;
 	//vs.push_back(new circle(5,1,1));
@@ -91,6 +87,4 @@ int main()
 			cout << pr->type() << endl;
 	}
 }
-
-
 

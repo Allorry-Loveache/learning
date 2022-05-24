@@ -93,18 +93,4 @@ int main()
 }
 
 
-#include<bits/stdc++.h>
-using namespace std;
-class Savings {
-protected:
-	int money;
-	string account;
-public:
-	Savings(int a, string b) :money(a), account(b) {}
-	virtual void input(int x) = 0;
-	virtual void output(int x) = 0;
-};
 
-class Checking :public Savings {
-
-};

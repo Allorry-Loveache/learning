@@ -59,3 +59,75 @@ int main()
 		putchar(' ');
 	}
 }
+
+
+
+
+
+//其他版本
+
+//三数取中优化
+#include<iostream>
+using namespace std;
+
+int a[] = { 1,5,3,8,9,15,27,2,3,643,2536,1};
+int n = sizeof(a) / sizeof(int);
+
+void q_sort(int begin, int end){
+    if (begin >= end) return;
+    int mid = (begin + end) / 2;
+    //三数取中
+    int base = (a[begin] > a[end]) ? (a[end] > a[mid]) ? end : mid 
+        : (a[begin] > a[mid]) ? begin : mid; 
+    //全部取到最左边作为基准值
+    if (base != begin) swap(a[base], a[begin]);
+    int l = begin, r = end;
+    while (l < r) {
+        while (a[r] >= a[begin] && l < r) r--;
+        while (a[l] <= a[begin] && l < r) l++;
+        if (l < r) swap(a[l], a[r]);
+    }
+    swap(a[l], a[begin]);
+
+    q_sort(begin, l - 1);
+    q_sort(l + 1, end);
+}
+int main()
+{
+    q_sort(0, n - 1);
+    for (int i : a) cout << i << ' ';
+}
+
+
+
+
+
+//前后指针版
+#include<iostream>
+using namespace std;
+
+int a[] = { 1,5,3,8,9,15,27,2,3,643,2536,1};
+int n = sizeof(a) / sizeof(int);
+
+void q_sort(int left, int right) {
+	if (left >= right) return;
+	int cur = left + 1, prev = left;
+	int base = left;
+	while (cur <= right) {
+		if (a[cur] < a[base] && ++prev != cur) {
+			swap(a[prev], a[cur]);
+		}
+		cur++;
+	}
+	swap(a[prev], a[base]);
+	q_sort(left, prev - 1);
+	q_sort(prev + 1, right);
+}
+
+
+
+int main()
+{
+	q_sort(0, n - 1);
+	for (int i : a) cout << i << ' ';
+}

@@ -24,9 +24,9 @@ public:
 	void set(int xx, int yy) {
 		x = xx, y = yy;
 	}
-	void out() {   //ÊäÈëµ½ÎÄ¼şÀï
+	void out() {   //è¾“å…¥åˆ°æ–‡ä»¶é‡Œ
 		ofstream f("result.txt", ios::app);
-		f << "¾ØĞÎµÄ³¤ ¿í Ãæ»ı·Ö±ğÎª£º" << x << ' ' <<
+		f << "çŸ©å½¢çš„é•¿ å®½ é¢ç§¯åˆ†åˆ«ä¸ºï¼š" << x << ' ' <<
 			y << ' ' << S() << endl;
 		f.close();
 	}
@@ -52,9 +52,9 @@ public:
 	void set(double a, double b, double c) {
 		x = a, y = b, z = c;
 	}
-	void out() {   //ÊäÈëµ½ÎÄ¼şÀï
+	void out() {   //è¾“å…¥åˆ°æ–‡ä»¶é‡Œ
 		ofstream f("result.txt", ios::app);
-		f << "Èı½ÇĞÎµÄÈı±ß Ãæ»ı·Ö±ğÎª£º" << x << ' ' <<
+		f << "ä¸‰è§’å½¢çš„ä¸‰è¾¹ é¢ç§¯åˆ†åˆ«ä¸ºï¼š" << x << ' ' <<
 			y << ' ' << z << ' ' << s << endl;
 		f.close();
 	}
@@ -74,9 +74,9 @@ public:
 	void set(int a, int b, int c) {
 		x = a, y = b, r = c;
 	}
-	void out() {   //ÊäÈëµ½ÎÄ¼şÀï
+	void out() {   //è¾“å…¥åˆ°æ–‡ä»¶é‡Œ
 		ofstream f("result.txt", ios::app);
-		f << "Ô²µÄx y×ø±ê °ë¾¶ Ãæ»ı·Ö±ğÎª£º" << x << ' ' <<
+		f << "åœ†çš„x yåæ ‡ åŠå¾„ é¢ç§¯åˆ†åˆ«ä¸ºï¼š" << x << ' ' <<
 			y << ' ' << r << ' ' << S() << endl;
 		f.close();
 	}

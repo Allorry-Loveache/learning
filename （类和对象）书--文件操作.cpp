@@ -35,7 +35,7 @@ public:
 };
 
 void show(vector<book>& x) {
-	cout << "ÊéÃû\t" << "±àºÅ\t" << "×÷Õß\t" << "³ö°æÉç\t" << endl;
+	cout << "ä¹¦å\t" << "ç¼–å·\t" << "ä½œè€…\t" << "å‡ºç‰ˆç¤¾\t" << endl;
 	for (int i = 0; i < x.size(); i++) {
 		x[i].info();
 	}
@@ -50,7 +50,7 @@ void find(vector<book>& x, string& n) {
 			break;
 		}
 	}
-	if (flag)  cout << "²éÎŞ´ËÊé" << endl;
+	if (flag)  cout << "æŸ¥æ— æ­¤ä¹¦" << endl;
 }
 
 void sortt(vector<book>& x) {
@@ -71,12 +71,12 @@ void another(vector<book>& x) {
 
 void menu() {
 	printf("********************************\n");
-	printf("******   0. ÍË³ö      **********\n");
-	printf("******   1. Ìí¼Ó      **********\n");
-	printf("******   2. ÏÔÊ¾      **********\n");
-	printf("******   3. ²éÕÒ      **********\n");
-	printf("******   4. ÅÅĞò      **********\n");
-	printf("***  5. ²éÖØ£¨¼æ²¢ÅÅĞò£©  ******\n");
+	printf("******   0. é€€å‡º      **********\n");
+	printf("******   1. æ·»åŠ       **********\n");
+	printf("******   2. æ˜¾ç¤º      **********\n");
+	printf("******   3. æŸ¥æ‰¾      **********\n");
+	printf("******   4. æ’åº      **********\n");
+	printf("***  5. æŸ¥é‡ï¼ˆå…¼å¹¶æ’åºï¼‰  ******\n");
 	printf("********************************\n");
 }
 
@@ -87,7 +87,7 @@ int main()
 	int n;
 	int count = 0;
 	ofstream f("book.dat", ios::binary | ios::app);
-	f << "ÊéÃû\t" << "±àºÅ\t" << "×÷Õß\t" << "³ö°æÉç\t" << endl;
+	f << "ä¹¦å\t" << "ç¼–å·\t" << "ä½œè€…\t" << "å‡ºç‰ˆç¤¾\t" << endl;
 	f.close();
 
 	while (1) {
@@ -95,8 +95,8 @@ int main()
 		cin >> n;
 		if (n == 0) return 0;
 		if (n == 1) {
-			cout << "×¢Òâ£ºÊéÃû¶ÌÒ»µã£¬bug²»Ïë¸ÄÁË" << endl;
-			cout << "Çë·Ö±ğÊäÈë ÊéÃû ±àºÅ ×÷Õß ³ö°æÉç£º£¨ÓÃ¿Õ¸ñ¼ä¸ô£©" << endl;
+			cout << "æ³¨æ„ï¼šä¹¦åçŸ­ä¸€ç‚¹ï¼Œbugä¸æƒ³æ”¹äº†" << endl;
+			cout << "è¯·åˆ†åˆ«è¾“å…¥ ä¹¦å ç¼–å· ä½œè€… å‡ºç‰ˆç¤¾ï¼šï¼ˆç”¨ç©ºæ ¼é—´éš”ï¼‰" << endl;
 			cin >> a >> b >> c >> d;
 			v.push_back(book(a, b, c, d));
 			v[count++].info_out();
@@ -106,7 +106,7 @@ int main()
 		}
 		if (n == 3) {
 			string t;
-			cout << "ÇëÊäÈëÊéÃû:" << endl;
+			cout << "è¯·è¾“å…¥ä¹¦å:" << endl;
 			cin >> t;
 			find(v, t);
 		}

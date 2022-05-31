@@ -12,38 +12,38 @@ int n = sizeof(a) / sizeof(int);
 void InsertSort(int* arr, int n){
 	for (int i = 0; i < n - 1; ++i)
 	{
-		//¼ÇÂ¼ÓĞĞòĞòÁĞ×îºóÒ»¸öÔªËØµÄÏÂ±ê
+		//è®°å½•æœ‰åºåºåˆ—æœ€åä¸€ä¸ªå…ƒç´ çš„ä¸‹æ ‡
 		int end = i;
-		//´ı²åÈëµÄÔªËØ
+		//å¾…æ’å…¥çš„å…ƒç´ 
 		int tem = arr[end + 1];
-		//µ¥ÌËÅÅ
+		//å•è¶Ÿæ’
 		while (end >= 0){
-			//±È²åÈëµÄÊı´ó¾ÍÏòºóÒÆ
+			//æ¯”æ’å…¥çš„æ•°å¤§å°±å‘åç§»
 			if (tem < arr[end]){
 				arr[end + 1] = arr[end];
 				end--;
 			}
-			//±È²åÈëµÄÊıĞ¡£¬Ìø³öÑ­»·
+			//æ¯”æ’å…¥çš„æ•°å°ï¼Œè·³å‡ºå¾ªç¯
 			else break;
 		}
-		//tem·Åµ½±È²åÈëµÄÊıĞ¡µÄÊıµÄºóÃæ
+		//temæ”¾åˆ°æ¯”æ’å…¥çš„æ•°å°çš„æ•°çš„åé¢
 		arr[end + 1] = tem;
-		//´úÂëÖ´ĞĞµ½´ËÎ»ÖÃÓĞÁ½ÖÖÇé¿ö:
-		//1.´ı²åÈëÔªËØÕÒµ½Ó¦²åÈëÎ»ÖÃ£¨breakÌø³öÑ­»·µ½´Ë£©
-		//2.´ı²åÈëÔªËØ±Èµ±Ç°ÓĞĞòĞòÁĞÖĞµÄËùÓĞÔªËØ¶¼Ğ¡£¨whileÑ­»·½áÊøºóµ½´Ë£©
+		//ä»£ç æ‰§è¡Œåˆ°æ­¤ä½ç½®æœ‰ä¸¤ç§æƒ…å†µ:
+		//1.å¾…æ’å…¥å…ƒç´ æ‰¾åˆ°åº”æ’å…¥ä½ç½®ï¼ˆbreakè·³å‡ºå¾ªç¯åˆ°æ­¤ï¼‰
+		//2.å¾…æ’å…¥å…ƒç´ æ¯”å½“å‰æœ‰åºåºåˆ—ä¸­çš„æ‰€æœ‰å…ƒç´ éƒ½å°ï¼ˆwhileå¾ªç¯ç»“æŸååˆ°æ­¤ï¼‰
 	}
 }
 
 
 
 
-//Ï£¶ûÅÅĞò    ---    ´øÓĞgapµÄ²åÈëÅÅĞò
+//å¸Œå°”æ’åº    ---    å¸¦æœ‰gapçš„æ’å…¥æ’åº
 void ShellSort(int* arr, int n){
 	int gap = n;
 	while (gap > 1){
-		//Ã¿´Î¶ÔgapÕÛ3²Ù×÷
+		//æ¯æ¬¡å¯¹gapæŠ˜3æ“ä½œ
 		gap = gap / 3 + 1;
-		//µ¥ÌËÅÅĞò
+		//å•è¶Ÿæ’åº
 		for (int i = 0; i < n - gap; ++i){
 			int end = i;
 			int tem = arr[end + gap];
@@ -62,18 +62,18 @@ void ShellSort(int* arr, int n){
 
 
 
-//Ñ¡ÔñÅÅĞò
+//é€‰æ‹©æ’åº
 void SelectSort(int* arr, int n)
 {
-	//±£´æ²ÎÓëµ¥ÌËÅÅĞòµÄµÚÒ»¸öÊıºÍ×îºóÒ»¸öÊıµÄÏÂ±ê
+	//ä¿å­˜å‚ä¸å•è¶Ÿæ’åºçš„ç¬¬ä¸€ä¸ªæ•°å’Œæœ€åä¸€ä¸ªæ•°çš„ä¸‹æ ‡
 	int begin = 0, end = n - 1;
 	while (begin < end)
 	{
-		//±£´æ×î´óÖµµÄÏÂ±ê
+		//ä¿å­˜æœ€å¤§å€¼çš„ä¸‹æ ‡
 		int maxi = begin;
-		//±£´æ×îĞ¡ÖµµÄÏÂ±ê
+		//ä¿å­˜æœ€å°å€¼çš„ä¸‹æ ‡
 		int mini = begin;
-		//ÕÒ³ö×î´óÖµºÍ×îĞ¡ÖµµÄÏÂ±ê
+		//æ‰¾å‡ºæœ€å¤§å€¼å’Œæœ€å°å€¼çš„ä¸‹æ ‡
 		for (int i = begin; i <= end; ++i)
 		{
 			if (arr[i] < arr[mini])
@@ -85,14 +85,14 @@ void SelectSort(int* arr, int n)
 				maxi = i;
 			}
 		}
-		//×îĞ¡Öµ·ÅÔÚĞòÁĞ¿ªÍ·
+		//æœ€å°å€¼æ”¾åœ¨åºåˆ—å¼€å¤´
 		swap(arr[mini], arr[begin]);
-		//·ÀÖ¹×î´óµÄÊıÔÚbeginÎ»ÖÃ±»»»×ß
+		//é˜²æ­¢æœ€å¤§çš„æ•°åœ¨beginä½ç½®è¢«æ¢èµ°
 		if (begin == maxi)
 		{
 			maxi = mini;
 		}
-		//×î´óÖµ·ÅÔÚĞòÁĞ½áÎ²
+		//æœ€å¤§å€¼æ”¾åœ¨åºåˆ—ç»“å°¾
 		swap(arr[maxi], arr[end]);
 		++begin;
 		--end;
@@ -105,7 +105,7 @@ void SelectSort(int* arr, int n)
 
 
 
-//¶ÑÅÅĞò
+//å †æ’åº
 void AdjustDown(int* a, int n, int parent) {
 	int child = parent * 2 + 1;
 	while (child < n) {
@@ -139,14 +139,14 @@ void HeapSort(int *a, int n) {
 
 
 
-//²¢¹éÅÅĞò
+//å¹¶å½’æ’åº
 void _MergeSort(int* a, int l, int r, int* t) {
 	if (l >= r) return;
-	//²ğ·Ö
+	//æ‹†åˆ†
 	int mid = (l + r) / 2;
 	_MergeSort(a, l, mid, t);
 	_MergeSort(a, mid + 1, r, t);
-	//¹é²¢
+	//å½’å¹¶
 	int begin1 = l, end1 = mid;
 	int begin2 = mid + 1, end2 = r;
 	int i = l;
@@ -157,13 +157,13 @@ void _MergeSort(int* a, int l, int r, int* t) {
 	}
 	while (begin1 <= end1) t[i++] = a[begin1++];
 	while (begin2 <= end2) t[i++] = a[begin2++];
-	//×îºó°Ñt ËÍµ½ a
+	//æœ€åæŠŠt é€åˆ° a
 	for (int j = l; j <= r; j++)
 		a[j] = t[j];
 }
 
 void MergeSort(int* a, int n) {
-	int* t = new int[n];   //ÁÙÊ±Êı×é
+	int* t = new int[n];   //ä¸´æ—¶æ•°ç»„
 	_MergeSort(a, 0, n - 1, t);
 	delete[] t;
 }
@@ -172,10 +172,10 @@ void MergeSort(int* a, int n) {
 
 
 
-//²¢¹éÅÅĞò  µü´úĞÎÊ½
+//å¹¶å½’æ’åº  è¿­ä»£å½¢å¼
 void merge(int* a, int* t, int begin1, int end1, int begin2, int end2) {
 	int i = begin1;
-	int l = begin1, r = end2;  //´æ´¢Ò»ÏÂ
+	int l = begin1, r = end2;  //å­˜å‚¨ä¸€ä¸‹
 	while (begin1 <= end1 && begin2 <= end2) {
 		if (a[begin1] < a[begin2])
 			t[i++] = a[begin1++];
@@ -192,9 +192,9 @@ void MSort(int* a, int n) {
 	int gap = 1;
 	while (gap < n) {
 		for (int i = 0; i < n; i += gap * 2) {
-			int end2 = i + 2 * gap - 1;  //ÓÒ°ëÇø¼äµÄÄ©Î²£¬µ¥¶ÀÁĞ³öÀ´
-			if (i + gap >= n) break;     //ÓÒ°ëÇø¼ä²»´æÔÚ£¬Ö±½Ó±ğ²¢¹éÁË
-			if (end2 >= n)               //ÓÒ°ëÇø¼äÔ½½çÁË£¬µ÷Õûend2
+			int end2 = i + 2 * gap - 1;  //å³åŠåŒºé—´çš„æœ«å°¾ï¼Œå•ç‹¬åˆ—å‡ºæ¥
+			if (i + gap >= n) break;     //å³åŠåŒºé—´ä¸å­˜åœ¨ï¼Œç›´æ¥åˆ«å¹¶å½’äº†
+			if (end2 >= n)               //å³åŠåŒºé—´è¶Šç•Œäº†ï¼Œè°ƒæ•´end2
 				end2 = n - 1;
 
 			merge(a, t, i, i + gap - 1, i + gap, end2);
@@ -210,7 +210,7 @@ void MSort(int* a, int n) {
 
 
 
-//  ¼ÆÊıÅÅĞò
+//  è®¡æ•°æ’åº
 void CountSort(int* a, int n) {
 	int maxx = *max_element(a, a + n);
 	int minn = *min_element(a, a + n);

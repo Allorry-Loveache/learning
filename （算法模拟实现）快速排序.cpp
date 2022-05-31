@@ -72,13 +72,18 @@ using namespace std;
 
 int a[] = { 1,5,3,8,9,15,27,2,3,643,2536,1};
 int n = sizeof(a) / sizeof(int);
+int getmid(int a, int b, int c){
+    if(a>c)
+    	return (a>b)?(b>c)? b: c  : a;
+    else 
+	return (c>b)?(a>b)? a: b  : c; 
+}
 
 void q_sort(int begin, int end){
     if (begin >= end) return;
     int mid = (begin + end) / 2;
     //三数取中
-    int base = (a[begin] > a[end]) ? (a[end] > a[mid]) ? end : mid 
-        : (a[begin] > a[mid]) ? begin : mid; 
+    int base = getmid(begin, end, mid);
     //全部取到最左边作为基准值
     if (base != begin) swap(a[base], a[begin]);
     int l = begin, r = end;

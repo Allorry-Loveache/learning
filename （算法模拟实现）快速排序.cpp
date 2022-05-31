@@ -67,11 +67,6 @@ int main()
 //其他版本
 
 //三数取中优化
-#include<iostream>
-using namespace std;
-
-int a[] = { 1,5,3,8,9,15,27,2,3,643,2536,1};
-int n = sizeof(a) / sizeof(int);
 int getmid(int a, int b, int c){
     if(a>c)
     	return (a>b)?(b>c)? b: c  : a;
@@ -97,22 +92,12 @@ void q_sort(int begin, int end){
     q_sort(begin, l - 1);
     q_sort(l + 1, end);
 }
-int main()
-{
-    q_sort(0, n - 1);
-    for (int i : a) cout << i << ' ';
-}
 
 
 
 
 
 //前后指针版
-#include<iostream>
-using namespace std;
-
-int a[] = { 1,5,3,8,9,15,27,2,3,643,2536,1};
-int n = sizeof(a) / sizeof(int);
 
 void q_sort(int left, int right) {
 	if (left >= right) return;
@@ -131,8 +116,59 @@ void q_sort(int left, int right) {
 
 
 
-int main()
+
+
+//迭代版本
+//单趟排
+int PartSort(int* arr, int begin, int end)
 {
-	q_sort(0, n - 1);
-	for (int i : a) cout << i << ' ';
+	int key = arr[begin];
+	while (begin < end)
+	{
+		while (key <= arr[end] && begin < end)
+		{
+			--end;
+		}
+		arr[begin] = arr[end];
+		while (key >= arr[begin] && begin < end)
+		{
+			++begin;
+		}
+		arr[end] = arr[begin];
+	}
+	arr[begin] = key;
+	int meeti = begin;
+	return meeti;
+}
+
+void QuickSortNoR(int* arr, int begin, int end)
+{
+	stack<int> st;
+	//先入右边
+	st.push(end);
+	//再入左边
+	st.push(begin);
+	while (!st.empty())
+	{
+		//左区间
+		int left = st.top();
+		st.pop();
+		//右区间
+		int right = st.top();
+		st.pop();
+		//中间数
+		int mid = PartSort(arr, left, right);
+		//当左区间>=mid-1则证明左区间已经排好序了
+		if (left < mid - 1)
+		{
+			st.push(mid - 1);
+			st.push(left);
+		}
+		//当mid+1>=右区间则证明右区间已经排好序
+		if (right > mid + 1)
+		{
+			st.push(right);
+			st.push(mid + 1);
+		}
+	}
 }

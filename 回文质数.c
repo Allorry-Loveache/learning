@@ -1,39 +1,42 @@
-#define _CRT_SECURE_NO_WARNINGS 1
-#include<stdio.h>                   
-int prime(int n) {                       //判断素数
-	if (n == 1)
-		return 0;
-	if (n % 2 == 0)
-		return 0;
-	else {
-		int i;
-		for (i = 3; i * i <= n; i += 2) {
-			if (n % i == 0)
-				return 0;
-		}
-		return 1;
-	}
+#include<iostream>
+using namespace std;
+
+bool prime(int n){
+	if(n==2||n==3)	return 1;
+	if(n%6!=1&&n%6!=5)	return 0;
+	for(int i=5;i*i<=n;i+=6)
+		if(n%i==0||n%(i+2)==0)	return 0;
+	return 1;
 }
-int hw(int n) {
-	int sum = 0;                    //判断回文数
-	int k = n;
-	while (n != 0) {
-		sum = sum * 10 + n % 10;
-		n /= 10;
-	}
-	if (sum == k)
-		return 1;
-	else
-		return 0;
+
+
+bool func1(int n){  //回文
+    int a[10];
+    int t=n, sum=0;
+    while(t>0){   //用数字反转判断回文
+        sum=sum*10+t%10;
+        t/=10;
+    }
+    return n==sum;
 }
-int main() {
-	int i, n, sum = 0, m;
-	scanf("%d %d", &n, &m);
-	for (i = n; i <= m; i++) {
-		if (i == 9989900)           //一亿内最大的回文数
-			break;
-		if (hw(i) && prime(i))
-			printf("%d\n", i);
-	}
-	return 0;
+
+bool func2(int n){ //没有偶数位的回文数,除了11
+    if(n>=1000 && n<=9999 || n>=100000 && n<=999999 
+    || n>=10000000 && n<=99999999)
+    return 0;
+    return 1;
+}
+
+int main()
+{
+    int m,n;
+    cin>>m>>n;
+    if(m%2==0) m++;
+    for(int i=m;i<=n;i+=2){
+        if(!func2(i)) continue;
+        if(!func1(i)) continue;
+        if(!prime(i)) continue;
+        printf("%d\n",i);
+    }
+    return 0;
 }

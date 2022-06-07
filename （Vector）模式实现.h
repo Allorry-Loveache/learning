@@ -108,7 +108,7 @@ namespace allorry {
 			assert(i < size());
 			return _start[i];
 		}
-		vector<T>& operator =(vector<T>& t) {
+		vector<T>& operator =(vector<T> t) {
 			swap(t);
 			return *this;
 		}

@@ -98,13 +98,13 @@ int main()
 {
 	ifstream fin("shape.txt");
 	string str;
-	while(getline(fin,str))   //ÏÈ¶ÁÈëÕûÕûÒ»ĞĞ
+	while(getline(fin,str))   //å…ˆè¯»å…¥æ•´æ•´ä¸€è¡Œ
 	{
 		shape* now;
 		stringstream sin(str);  
 		vector <double> vin;
 		double x;
-		while(sin>>x) vin.push_back(x);  //ÒÔ¿Õ¸ñÎª¼ä¸ô£¬°ÑÒ»ĞĞ·Ö³ÉºÃ¼¸·İ
+		while(sin>>x) vin.push_back(x);  //ä»¥ç©ºæ ¼ä¸ºé—´éš”ï¼ŒæŠŠä¸€è¡Œåˆ†æˆå¥½å‡ ä»½
 		if(vin.size()==3) now=new circle(vin[0],vin[1],vin[2]);
 		if(vin.size()==4) now=new rectangle(vin[0],vin[1],vin[2],vin[3]);
 		if(vin.size()==6) now=new triangle(vin[0],vin[1],vin[2],vin[3],vin[4],vin[5]);

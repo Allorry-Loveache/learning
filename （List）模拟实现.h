@@ -22,7 +22,7 @@ namespace allorry {
 
 		node* _node;
 
-		_list_iterator(node* x) :_node(x) {}
+		_list_iterator(node* x=nullptr) :_node(x) {}
 
 		Ref operator*() {   // *it
 			return _node->_val;

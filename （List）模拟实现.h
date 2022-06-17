@@ -62,9 +62,9 @@ namespace allorry {
 
 	template <class T>
 	class list {
-		typedef _list_node<T> node;
-
+		
 	public:
+		typedef _list_node<T> node;
 		typedef _list_iterator<T, T&, T*> iterator;
 		typedef _list_iterator<T, const T&, const T*> const_iterator;
 		//根据传入数据类型的不同，来确定用哪个iterator

@@ -43,22 +43,22 @@ namespace allorry {
 			return _end - _start;
 		}
 		void reserve(size_t n) {
-			if (n > capacity()) {
-				T* t = new T[n];
-				size_t sz = size(); //先保留好原空间的大小
-				if (_start) { //原空间有东西的话就拷过去，注意此处摧毁空间
-					memcpy(t, _start, sz * sizeof(T));
-					delete[] _start;
-				}
-				//以上运用memcpy只适用于浅拷贝，以下通用
-				/*for (size_t i = 0; i < sz; i++) {
-					t[i] = _start[i];
-				}*/
-				_start = t;
-				//_finish = _start + size(); 错误写法，迭代器可能失效
-				_finish = _start + sz;
-				_end = _start + n;
+			if (n <= capacity()) return;
+			
+			T* t = new T[n];
+			size_t sz = size(); //先保留好原空间的大小
+			if (_start) { //原空间有东西的话就拷过去，注意此处摧毁空间
+				memcpy(t, _start, sz * sizeof(T));
+				delete[] _start;
 			}
+			//以上运用memcpy只适用于浅拷贝，以下通用
+			/*for (size_t i = 0; i < sz; i++) {
+				t[i] = _start[i];
+			}*/
+			_start = t;
+			//_finish = _start + size(); 错误写法，迭代器可能失效
+			_finish = _start + sz;
+			_end = _start + n;
 		}
 		void push_back(const T& x) {
 			if (_finish == _end) {
